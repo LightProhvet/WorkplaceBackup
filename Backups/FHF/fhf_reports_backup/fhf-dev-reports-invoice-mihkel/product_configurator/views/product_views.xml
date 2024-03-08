@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_tag_form_inherit" model="ir.ui.view">
+        <field name="name">product.configurator.tag.view.form</field>
+        <field name="model">product.configurator.tag</field>
+        <field name="inherit_id" ref="product_configurator_tags.product_tag_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='products']/tree/field[@name='price_multiplier']" position="after">
+                <field name="configurator_display_name"/>
+                <field name="configurator_tag_display_name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_form_take_2" model ="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="weight_per_square_meter"/>
+            </field>
+            <field name="name" position="after">
+                <h2>
+                    <field name="configurator_display_name" placeholder="Display name"/>
+                </h2>
+                <field name="inner_template" invisible="1" />
+                <field name="separate_template" invisible="1" />
+                <h3>
+                    <field name="configurator_relation" readonly="1" />
+                </h3>
+                <field name="parent_configurator" invisible="1" />
+                <field name="configurator_check" invisible="1" />
+                <field name="template_relation" invisible="1" />
+            </field>
+            <page name="inventory" position="after">
+                <page string="Files" name="configurator_files">
+                    <group name="files">
+                        <field name="frame_image" widget="pdf_viewer"/>
+                        <field name="configurator_file" widget="many2many_binary"/>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+<!--    <record id="product_template_form_configurator_inherit" model="ir.ui.view">-->
+<!--        <field name="name">product.template.view.form.inherit</field>-->
+<!--        <field name="model">product.template</field>-->
+<!--        <field name="inherit_id" ref="product.product_template_form_view"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--&lt;!&ndash;            <xpath expr="//form/notebook/page/group" position="inside">&ndash;&gt;-->
+<!--&lt;!&ndash;            &lt;!&ndash;                <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <field name="configurator_display_name" placeholder="Display name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <field name="inner_template" invisible="1" />&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+<!--            <page name="inventory" position="after">-->
+<!--                <page string="Files" name="configurator_files">-->
+<!--                    <group name="files">-->
+<!--                        <field name="configurator_file" widget="many2many_binary"/>-->
+<!--                    </group>-->
+<!--                </page>-->
+<!--            </page>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.product.configurator</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="add_configurator" string="Configure product" type="object" class="btn-primary"/>
+            </xpath>
+<!--            <xpath expr="//field[@name='order_line']/tree/control" position="inside">-->
+<!--                <create string="Add a configurator" context="{'open_template_configurator': True}"/>-->
+<!--&lt;!&ndash;                <create name="add_configurator_control" string="Add a configurator" context="{'default_display_type': 'line_config'}"/>&ndash;&gt;-->
+<!--            </xpath>-->
+<!--            <xpath expr="//header" position="inside">-->
+<!--                <button name="action_configurator_send" string="Custom Report" type="object"/>-->
+<!--            </xpath>-->
+            <xpath expr="//group[@name='sale_total']" position="inside">
+<!--                <field name="amount_margin" widget="monetary" options="{'currency_field': 'currency_id'}" />-->
+                <field name="amount_margin_multiplier"/>
+                <field name="last_added_template_line" invisible="1"/>
+            </xpath>
+<!--            <xpath expr="//tree" position="inside">-->
+<!--                <button name="button_open_configurator" type="object" class="oe_edit_only" string="Edit"/>-->
+<!--&lt;!&ndash;                    <span class="fa fa-plus-square"/>Edit Configuration&ndash;&gt;-->
+<!--&lt;!&ndash;                </button>&ndash;&gt;-->
+<!--            </xpath>-->
+        </field>
+    </record>
+</odoo>

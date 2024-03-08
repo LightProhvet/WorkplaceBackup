@@ -1,0 +1,63 @@
+<data>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[1]/td[1]/t[1]/span[3]" position="attributes">
+    <attribute name="t-field">line.secondary_uom_id.id</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[1]/td[1]/t[1]/span[3]" position="attributes">
+    <attribute name="t-field">line.secondary_uom_id.code</attribute>
+  </xpath>
+  <xpath expr="/t/t/div/table/thead/tr/t[1]/th/span" position="replace">
+    <span>m3</span>
+  </xpath>
+  <xpath expr="/t/t/div/table/thead/tr/t[3]/th/span" position="replace">
+    <span>€ / m3</span>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[3]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"monetary"</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[4]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"monetary"</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+  <xpath expr="/t/t/div/div[3]" position="after">
+    <div class="row">
+      <div class="col">
+        <span>New Text Block</span>
+      </div>
+    </div>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/div[4]/div[1]" position="replace"/>
+  <xpath expr="/t/t/div/div[7]" position="after">
+    <div class="row">
+      <div class="col">
+        <span>New Text Block</span>
+      </div>
+    </div>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/div[8]/div[1]" position="replace"/>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-format_decimalized_number">True</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-format_decimalized_number">False</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-format_decimalized_number">True</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-format_decimalized_number">False</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-format_decimalized_number">True</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"float"</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/table[1]/tbody[1]/t[2]/tr[1]/t[1]/t[2]/td[1]/span[1]" position="attributes">
+    <attribute name="t-options-precision">2</attribute>
+  </xpath>
+  <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[2]/p[1]" position="attributes">
+    <attribute name="t-field">doc.write_date</attribute>
+  </xpath>
+</data>

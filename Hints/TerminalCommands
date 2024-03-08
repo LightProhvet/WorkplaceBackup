@@ -1,0 +1,51 @@
+get ip:
+ip -a, ip addr
+nmcli dev status
+
+Open terminal configuration:
+nano ~/.bashrc
+
+Add alias completion
+complete -F $_complete_alias $ALIAS    ($_complete_alias is the script that adds the autocomplete, i have installed the universal script)
+
+
+DOCKER:
+docker ps - näitab jooksvaid conteinereid
+docker volume ls - näitab volumeid
+docker exec -it <container_id> /bin/bash - läheb sisse
+	(run odoo tests:)
+docker exec -it $docker_container odoo($service) -d $database --workers 0 --test-tags /l10n_ee_account_asset.test_salvage_asset_increase_dispose
+
+GIT:
+
+submodules:
+  git submodule init
+  git submodule update (--init) 
+    git submodule sync
+    
+ (Submodule 'common' (https://github.com/dhoeric/common.git) registered for path 'common') 
+    perl -i -p -e 's|https://(.*?)/|git@\1:|g' .gitmodules - One-liner to replace HTTPS into SSH url in .gitmodules
+
+NGNIX:
+systemctl reload nginx
+
+GENERAL:
+
+arvuti ssh võtme leidmine: cat ~/.ssh/id_rsa.pub
+
+UUID loomine (Odoo andmebaasile): uuidgen
+
+IP aadress: hostname -I 
+
+kutsu mitu korda välja funktsiooni)
+	watch (-d/--differences, -n/--interval (0.1 is min), -x/--exec, -p/--precise)  
+vaata jätkuvalt RAM-i 
+	watch free (-h)
+
+vaata protsesside järgi ressursikasutust
+	htop
+Vaata süsteemide logi:
+journalctl -b
+	
+resolvectl status - to see details about the uplink DNS servers currently in use.
+

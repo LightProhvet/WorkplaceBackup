@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_simple_label2x7_hc">
+            <t t-set="barcode_size" t-value="'width: 80mm; padding:0px; margin:0px;'"/>
+<!--            We set the barcode_size wider then the paper, because barcode image always has white spaces around the edges-->
+            <div class="o_label_sheet" style="height: 100%; width: 100%;">
+                <div class="o_label_full">
+                    <div class="o_label_name" style="height:30 mm;background-color: transparent;">
+                        <div class="row" style="padding-bottom:0px; margin-bottom:0px;">
+                            <div class="col-6" style="font-size:24px; padding-bottom:0px;">
+                                <strong t-field="product.default_code"/>
+                            </div>
+                            <div class="col-6 align-items-center" style="font-size:16px; padding-top: 5px;">
+                                <span t-esc="datetime.datetime.now().strftime('%d.%m %H:%M')"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="o_label_data">
+                        <div class="row mb-2">
+<!--                            <span class="mt-0" t-field="product.display_name"/>-->
+                            <span class="mt-0" t-field="product.display_name"/>
+                        </div>
+                        <div class="row px-0 text-left">
+                            <t t-if="barcode">
+                                <div t-out="barcode" style="padding:0px; margin:0px;"
+                                     t-options="{'widget': 'barcode', 'symbology': 'auto', 'img_style': barcode_size}"/>
+                            </t>
+                        </div>
+                        <div class="row px-0 py-0">
+                            <small class="text-center" t-out="barcode"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+        <template id="report_productlabel_dymo" inherit_id="product.report_productlabel_dymo">
+            <xpath expr="//t[@t-call='product.report_simple_label_dymo']" position="replace">
+                <t t-if="barcode" t-call="tracking_numbers_hansacandle.report_simple_label2x7_hc"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

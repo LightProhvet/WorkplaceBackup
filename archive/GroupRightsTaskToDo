@@ -1,0 +1,5 @@
+1) Muuta projektide nähtavust (manager = False, active_id in manager, active in message_follower) - taski puhul, projekti puhul sama aga manager_id on hoopis user_id
+
+	Küsimused: 1. Kas peaks vaatama ka Ownerit (alias_user_id)? Memberit(favorite_user_ids)? activity_user_id?
+	
+2) Muuta muutmisõigusi, juhul kui active_id in user_id

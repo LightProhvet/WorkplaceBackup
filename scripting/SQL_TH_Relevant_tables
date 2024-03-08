@@ -1,0 +1,46 @@
+product_pricelist_item_cache - the cache
+
+Algne idee siis
+
+SELECT * from old_data
+EXCEPT
+SELECT * from new_data
+
+SELECT * FROM sys.columns
+WHERE object_id = OBJECT_ID(N'Original')
+
+EXCEPT
+
+SELECT * FROM sys.columns
+WHERE object_id = OBJECT_ID(N'Revised');
+
+
+create materialized view test_table1 as (
+select id, context_product_id, context_company_id, final_price from product_pricelist_item_cache WHERE ID=207
+);
+
+create materialized view test_table2 as (
+select id, context_product_id, context_company_id, final_price from product_pricelist_item_cache WHERE ID=207
+);
+
+"""
+CREATE MATERIALIZED VIEW CONCURRENTLY old_mat_view_cache as (
+SELECT
+final_price,
+context_product_id,
+context_company_id,
+base_price,
+id,
+min_quantity,
+applied_on,
+base,
+base_pricelist_id,
+pricelist_id,
+price_surcharge,
+price_discount,
+active,
+web_id,
+used_in
+FROM product_pricelist_item_cache
+);
+"""

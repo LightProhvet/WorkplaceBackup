@@ -1,0 +1,4 @@
+https://www.odoo.com/documentation/8.0/reference/cmdline.html
+
+
+$ odoo.py --log-handler :DEBUG --log-handler werkzeug:CRITICAL --log-handler openerp.fields:WARNING

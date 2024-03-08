@@ -1,0 +1,17 @@
+self.env.cr.execute("""
+            update product_template
+                set 
+                    template_height = prod.product_height,
+                    template_width = prod.product_width,
+                    template_length = prod.product_length,
+                from (
+                    select 
+                        tmpl.id,
+                        product_height,
+                        product_width,
+                        product_length
+                    from product_template as tmpl
+                    inner join product_product as pt on (pt.product_tmpl_id = tmpl.id)
+                ) as prod
+                where prod.id = product_template.id
+        """)

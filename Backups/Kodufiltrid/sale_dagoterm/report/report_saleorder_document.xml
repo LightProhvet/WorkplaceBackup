@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_saleorder_document_sale_dagoterm" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//div[hasclass('page')]//div[@id='informations']//div[1]" position="before">
+        <div t-if="doc.partner_object_id" class="col-auto mw-100 mb-2">
+            <strong>Object:</strong>
+            <p class="m-0" t-field="doc.partner_object_id.name"/>
+            <p class="m-0" t-field="doc.partner_object_id.contact_address"/>
+        </div>
+        <div t-if="doc.contract_id" class="col-auto mw-100 mb-2">
+            <strong>Contract:</strong>
+            <p class="m-0" t-field="doc.contract_id.name"/>
+        </div>
+    </xpath>
+
+    <xpath expr="//div[hasclass('page')]//div[@t-if='doc.user_id.name']" position="after">
+        <div t-if="doc.carrier_id" class="col-auto mw-100 mb-2">
+            <strong>Delivery Method:</strong>
+            <p class="m-0" t-field="doc.carrier_id.name"/>
+        </div>
+        <div t-if="doc.carrier_location_data" class="col-auto mw-100 mb-2">
+            <strong>Delivery Location:</strong>
+            <p class="m-0" t-field="doc.carrier_location_data"/>
+        </div>
+    </xpath>
+
+    <xpath expr="//tbody[hasclass('sale_tbody')]//tr[1]//td[1]" position="inside">
+        <t t-if="line.product_id and line.product_id.bom_ids">
+            <t t-foreach="line.product_id.bom_ids" t-as="mrp_bom">
+                <t t-if="mrp_bom.print_components">
+                    <t t-foreach="mrp_bom.bom_line_ids" t-as="mrp_bom_line">
+                        <br/>
+                        <span>-
+                            <span t-esc="mrp_bom_line.product_id.name"/>
+                            (<span t-esc="mrp_bom_line.product_qty"/> <span t-esc="mrp_bom_line.product_uom_id.name"/>)
+                        </span>
+                    </t>
+                </t>
+                <t t-else="">
+                    <t t-foreach="mrp_bom.bom_line_ids" t-as="mrp_bom_line">
+                        <t t-if="mrp_bom_line.child_bom_id.type == 'phantom'">
+                            <br/>
+                            <span>-
+                                <span t-esc="mrp_bom_line.product_id.name"/>
+                                (<span t-esc="mrp_bom_line.product_qty"/> <span t-esc="mrp_bom_line.product_uom_id.name"/>)
+                            </span>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </xpath>
+
+    <xpath expr="//tbody[hasclass('sale_tbody')]" position="attributes">
+        <attribute name="style">font-size: 14px;</attribute>
+    </xpath>
+</template>
+
+<template id="report_saleorder_sale_dagoterm" inherit_id="sale.report_saleorder">
+    <xpath expr="//t[@t-call='sale.report_saleorder_document']" position="before">
+        <p style="page-break-after: always;"/>
+    </xpath>
+</template>
+
+<record id="action_report_saleorder_html" model="ir.actions.report">
+    <field name="name">Quotation / Order HTML</field>
+    <field name="model">sale.order</field>
+    <field name="report_type">qweb-html-pop-up</field>
+    <field name="report_name">sale.report_saleorder</field>
+    <field name="report_file">sale.report_saleorder</field>
+    <field name="print_report_name">(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)</field>
+    <field name="binding_model_id" ref="model_sale_order"/>
+    <field name="binding_type">report</field>
+</record>
+
+</odoo>

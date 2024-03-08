@@ -1,0 +1,7 @@
+1) (re)start service
+service rabbitmq-server (re)start
+
+sudo rabbitmqctl list_queues (name messages_ready, messages_unacknowledged) -> you can add the columns you want to display
+sudo rabbitmqctl list_exchanges 
+sudo rabbitmqctl list_bindings 
+	

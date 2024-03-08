@@ -1,0 +1,37 @@
+Backup masin:
+ip:192.168.10.201
+location: /mnt/hdd/ovh_backupid
+kasutaja: madis
+parool: 25ef21f0lQGwlcHm@8N4%s - vana
+
+uus:
+192.168.10.144
+/mnt/backups/odoo_backups/ovh_backupid
+kasutaja: estpos
+
+ssh estpos@192.168.10.144
+
+Tõmbab alla:
+scp estpos@192.168.10.144:/mnt/backups/odoo_backups/ovh_backupid/ovh2/backup-scripts/pg_backup/backups/standwood_live_2/daily/standwood_live_2_2023-09-20_00_44_18.zip /home/mihkel/Downloads/restore/
+
+LAIVIST TEHES:  (Arhiveeri = eemalda) 1) EEMALDA VÄLJUVAD JA SISENEVAD SERVERID 2) EEMALDA AJASTATUD TOIMINGUD (jäta autovacuum alles) 3) VAHETA UUID
+
+mine postgresi: 
+sudo su postgres 
+psql
+
+Tee kasutaja:
+CREATE ROLE project_tester WITH LOGIN INHERIT CREATEDB PASSWORD 'maolenheaparool';
+
+Tee andmebaas:
+create DATABASE allmight_database_name OWNER project_tester TEMPLATE template1;
+
+unzipi backup:
+unzip balsnack_live_1_2023-06-13_00_00_01.zip (destination)
+
+kopeeri filestore õigesse kohta:
+cp -R /home/mihkel/Downloads/restore/filestore/ /opt/odoo_instances/project_000/volumes/odoo/filestore/allmight_database_name  (või kasuta seda dockeri rada: cp -R filestore/ /var/lib/docker/volumes/fhf_040_odoo-web-data/_data/filestore/fhf_live_23_08_23
+
+kopeeri andmebaas backupist andmebaasi:
+psql -h localhost -p 5432 -d "balsnack_13_06_filestore_test" -U th_tester -f /home/mihkel/Downloads/restore/dump.sql
+

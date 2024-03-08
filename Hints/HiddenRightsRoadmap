@@ -1,0 +1,31 @@
+Step 1: create the group: (security.xml)
+
+
+<record id="group_cancel_sales" model="res.groups">
+<field name="name">Tühistamise õigus "Müük"</field>
+<field name="category_id" ref="base.module_category_hidden"/>
+</record>
+
+Step 2: make sure overwrites and Rules are right, if necessarry (security.xml)
+<record id="access_project_task_manager_view" model="ir.rule">
+	<field name="name">Access Rule: Project Task Manager access</field>
+	<field name="model_id" ref="project.model_project_task"/>
+	<field name="perm_read" eval="0"/>
+	<field name="perm_write" eval="1"/>
+	<field name="perm_unlink" eval="1"/>
+	<field name="perm_create" eval="1"/>
+	<field name="domain_force">[('manager_id', 'in', [user.id])]
+	<!--            '|',('project_id.user_id', 'in', [user.id]),-->
+
+	</field>
+	<field name="groups" eval="[(4, ref('project.group_project_user'))]"/>
+</record>
+
+Step 3: Add the rights to desired models (ir.model.access.csv)
+access_sale_order_cancel_orders,sale.order,model_sale_order,fhf_sale_customization.group_cancel_accounting,1,1,1,1
+access_account_move_cancel_accounts,account.move,account.model_account_move,fhf_sale_customization.group_cancel_accounting,1,1,1,1
+
+Step 4: Add groups to desired UI(view.xml)
+<xpath expr="//button[@name='action_cancel']" position="attributes">
+	<attribute name="groups">fhf_sale_customization.group_cancel_sales</attribute>
+</xpath>

@@ -1,0 +1,8 @@
+
+logging.get_logger(__name__) - .info kirjutab konsooli alati, .debug on ka mingi variant, vajadusel võid veel uurida
+
+--log-level=debug_sql - logib SQL andmed
+
+import traceback
+traceback.print_stack() -error ilma errorita :) 
+

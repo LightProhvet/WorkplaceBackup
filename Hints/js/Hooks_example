@@ -1,0 +1,11 @@
+OWL overview here: https://github.com/odoo/owl/blob/master/doc/readme.md
+
+function useCurrentTime() {
+    const state = useState({ now: new Date() });
+    const update = () => state.now = new Date();
+    let timer;
+    onWillStart(() => timer = setInterval(update, 1000));
+    onWillUnmount(() => clearInterval(timer));
+    return state;
+}
+

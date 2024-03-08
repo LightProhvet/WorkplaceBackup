@@ -1,0 +1,14 @@
+dict_variable = {key:value for (key,value) in dictonary.items()}
+
+list = list.filtered(lambda x: x in list2)
+
+def convert_to_utc(localdatetime=None):
+    """Convert Localtime to UTC"""
+    localdatetime = datetime.strptime(localdatetime, "%Y-%m-%d  %H:%M:%S")
+    timezone_tz = 'utc'
+    local = pytz.timezone(timezone_tz)
+    local_dt = local.localize(localdatetime, is_dst=None)
+    utc_datetime = local_dt.astimezone(pytz.utc)
+    return utc_datetime
+    
+    or timezone('UTC').localize(start_utc).astimezone(timezone(user_tz))

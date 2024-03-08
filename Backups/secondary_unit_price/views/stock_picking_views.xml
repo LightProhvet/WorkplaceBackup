@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<!--    UNUSED FILE    -->
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">Stock Picking Secondary Unit Price</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock_secondary_unit.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_uom_qty']" position="before">
+<!--                THIS IS NOT PROPERLY ADDED HERE -->
+                <field name="secondary_uom_price"
+                    attrs="{'column_invisible': [('parent.immediate_transfer', '=', True)], 'readonly': ['|', ('is_initial_demand_editable', '=', False), '&amp;', '&amp;', ('show_operations', '=', True), ('is_locked', '=', True), ('is_initial_demand_editable', '=', False)]}"
+                    groups="uom.group_uom"/>
+            </xpath>
+            <xpath expr="//field[@name='move_ids_without_package']/form//field[@name='product_uom_qty']" position="before">
+                <field name="secondary_uom_qty"
+                    attrs="{'invisible': [('parent.immediate_transfer', '=', True)], 'readonly': [('is_initial_demand_editable', '=', False)]}"
+                    groups="uom.group_uom"/>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

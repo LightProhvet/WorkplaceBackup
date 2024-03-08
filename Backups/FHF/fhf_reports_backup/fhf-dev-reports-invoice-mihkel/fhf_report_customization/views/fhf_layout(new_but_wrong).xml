@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_inherited" inherit_id="web.external_layout_bold">
+        <xpath expr="//div[@class='col-6']" position="replace">
+            <t t-call-assets="web.report_assets_common" t-js="false"/>
+            <div class="col-6">
+                    <img t-if="company.logo" style="height:250px; width:55%;" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[3]" position="replace">
+            <t t-call-assets="web.report_assets_common" t-js="false"/>
+            <div t-attf-class="footer report_footer o_company_#{company.id}_layout">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row1">
+                            <p>
+                                <b>
+                                    <span style="font-size:16px" t-field="company.name"/>
+                                </b>
+                                <br/>
+                                Reg. nr :
+                                <t t-if="company.company_registry">
+                                    <span t-field="company.company_registry"/>
+                                </t>
+                                <br/>
+                                KMKR nr :
+                                <span t-field="company.vat"/>
+                            </p>
+
+                            <span class="fa fa-map-marker">&#160;</span>
+                            <p class="footer-address">
+
+                                <span t-field="company.street"/>,
+                                <span t-field="company.street2"/>,
+                                <span t-field="company.city"/>,
+                                <span t-field="company.state_id.name"/>,
+                                <span t-field="company.zip"/>
+                                <span t-field="company.country_id.name"/>
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="col-3">
+                        <div class="footer-icon other-col">
+                            <span class="fa fa-phone">&#160;</span>
+                            <t t-esc="company.phone"/>
+                            <br/>
+                            <span class="fa fa-link">&#160;</span>
+                            <t t-esc="company.website"/>
+                            <br/>
+                            <span class="fa fa-envelope">&#160;</span>
+                            <t t-esc="company.email"/>
+
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="other-col other-col2" style="margin-top:-10px;">
+
+                            <b>EE744204278620421101</b>
+                            <br/>
+                            Coop Pank AS
+                            <br/>
+                            SWIFT/BIC: EKRDEE22
+                            <br/>
+
+
+                            <div class="tagline">
+                                <b>
+                                    <span t-field="company.report_header"/>
+                                </b>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-3">
+                        <img class="home_image" src="/fhf_report_customization/static/src/img/home3.png"
+                             alt="Home"/>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,11 @@
+PINSKA NESTIMINE!
+
+Baasloogikaga lahendatav, vaja teha mugavamaks.
+UI vajab täiendust:
+1) Tootmistellimuste list vaates, valides mitu tootmistellimust saab nendele luua ülemtellimus
+ 	1.1) Ülemtellimuse loomisel esitatakse uus konfiguraator, kus konfigureeritakse ülemtoode
+ 	1.2) Kui toode on konfigureeritud, luuakse TT ülemtootele, mis lingitakse kõikide seotud MT-dega
+ 	1.3) Vanad TT-d muudetakse, vastavalt seadistusele - loo seadistusvõimalused.
+2
+
+

@@ -1,0 +1,50 @@
+1) 4 õigust - lugemine, muutmine, loomine, kustutamine
+2) Õigused antakse gruppidele. Gruppid kuuluvad kategooriatesse ja toimivad hierarhiliselt. Kõik õigused on alamõigused ühele kolmest õigusest:
+Internal User, Portal, Public
+3) Kategooriad on valimise mugavuseks, kuid ideaalis peaksid ka tegema nähtavaks hierarhia
+
+4) Gruppidele antud õigusi saab piirata reeglitega - justnimelt piirata, mitte anda. 
+
+4) Reegleid on kahte liiki: Globaalsed ja grupi põhised. 
+
+Üldine arhitektuur on: 
+1) Õigused andmine 
+2) Globaalsed reeglid 
+3) Grupipõhised reeglid
+Õigusi antakse  ülevalt alla, see tähendab, et ära võtmine toimub alt üles.
+
+
+Odoo ei ole seda ise korrektselt teinud, aga tuleb alati defineerida:
+kehtivus - ehk kas reegel kehtib, näitab, kas reegel kehtib antud kande korral. Näiteks toote "Punane särk M", id=94 korral
+         - see kumb on aga positiivne kehtivus, on aga subjektiivne. Ülekirjutuse, õiguste arhitektuuri seisukohalt on loogilisem
+          rääkida keelamisest, kui kehtivusest. küll aga domeen tegelikult kehtib siis, kui ta annab õigust. Ehk reegli põhiselt 
+          räägime lubamisest kui kehtivusest. Siinkohal olen kasutanud reeglipõhist definitsiooni - reegel kehtib kui lubab ligipääsu.
+          ning seetõttu räägin ülekirjutustest, kui "'ei kehti' sõltuvalt millestki.
+rakendatavus - ehk kas reegel on rakendatud kõnealusele kasutajale - 
+
+5) Globaalsed reeglid töötavad (rakenduvad) kõikide grupide peal. Ning "ei kehti" sõltumata gruppide (või ükskõik mis muudest) reeglitest - s.t JA operaatoriga, 
+s.t kui globaalne reegel keelab (ei kehti), siis ei saa miski õigust enam anda. Kui globaalne reegel lubab(kehtib), siis grupipõhine reegel saab täiendavalt ära võtta.
+
+6) kui globaalne reegel ei kehti, ei kehti ka ükski muu reegel. (sh teised globaalsed reeglid)
+
+7) Grupipõhised reeglid rakenduvad kindlale grupile, s.h alamgruppidele (see ei tähenda tingimata kategooriat). 
+8) Grupipõhised reeglid ei kirjuta üksteist üle - "kehtivad/ei kehti" sõltuvalt teistest reeglitest - s.t VÕI operaatoriga
+
+
+9) Kuigi reeglid on mõeldud piirama, kehtib reegel siis, kui ta LUBAB ligipääsu, sest kehtimisel räägitakse konkreetse kande vastavusest reeglile.
+s.t kui eksisteerib reegel, mis lubab ligipääsu, siis teine reegel seda ei saa piirata, kui ei kirjuta seda üle.
+
+Rakenduslikud näited:
+
+Tehes kaks grupipõhist reeglit ja kolmanda globaalse reegli
+1: id > 100
+2: id > 200
+3g: id > 150
+
+siis 
+a) id = 175 saab ligipääsu õiguse, kuna 1. reegel kehtib ja 2. ei kehti aga on grupi reegel ning ei kirjuta 1. üle ning 3g. kehtib
+b) id 125 ei saa ligipääsu õiguse, kuna 1. kehtib 2. ei kehti aga ei mõjuta siinkohal midagi 3g ei kehti ning kirjutab 1. üle, sest on globaalne reegel
+
+muutes 3g = id > 50
+c) id = 75 ei saa ligipääsu õiguse, kuna globaalne reegel 3g kehtib, aga 1. ja 2. reegel ei kehti
+

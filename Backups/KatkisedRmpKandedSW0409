@@ -1,0 +1,25 @@
+114201 Lõpetamata toodangu ladu (9) - 5 ekstra kannet, diff = -4.84  --> 4 kannet ja +0,02  on negative stock reeval
+
+114301 Valmistoodangu ladu (593) - 43 ekstra kannet, diff = +38.30 --> 43 kannet ja +38,30  on negative stock reeval
+
+114303 Väljastatud arveldamata toodang (593) - 42 ekstra kannet, diff=-38.29 --> 42 kannet ja -38,29  on negative stock reeval
+
+114401 Müügiks ostetud kaupade ladu (3) - OK
+
+1144011 Haab saematerjal ladu (399) - 96 ekstra kannet, diff = -2174,19 
+
+1144012 Lepp saematerjal ladu (606) - 28 ekstra kannet, diff = -3400.28 (vales suunas)
+
+1144016 Saar saematerjal ladu (45) - kannete arv ok, diff = -169.41
+
+1144019 Abachi saematerjali ladu (20) - kannete arv ok, diff = -5.68
+
+(501001 Valmistoodangu varude jääkide muutus (0) - 1 kanne tekkis juurde, negative stock reeval (-0.01)
+
+501010 Lõpetamata toodangu varude jääkide muutus (9) - 5 kannet tekkis juurde, diff = +4.84 --> 4 kannet ja -0,02  on negative stock reeval
+
+999001 Tooraine ja materjal arveldamata (1070) - 217 ekstra kannet, väga mitte OK (Diff = +5749.56 (vales suunas liikus ka)
+
+999002 Ostukaup arveldamata (3) - OK
+
+6W8C0LEmcCE

@@ -1,0 +1,34 @@
+Veel asjakohased:
+
+1) DOI kood, ühesõnaga, Kas see on UI poolt tehtav asi?
+5) Kas me kasutame courier service-t? wiserby_delivery_itella moodulis ma ei leidnud 
+7) kas LIMITED QUANTITY on kasutuses?
+8) kas itella_ee_get_tracking_link oli API tracking request või me ei kasutagi trackingut?
+9) Kas Uut funktsionaalsust (API COD payement) siis ei lisa?
+x6) Kas JSON võimalus meid ei huvita?
+x7) Kas me kasutame <source> ja <return> inputi? Ei näinud: "Country is required for input <destination> <source > <return>"
+x8) kas ma raisin kui mingid andmed puudu? Vana loogika paistab olevat panna tühjad andmed liz kaasa
+
+x9) goods ja transport "cash" asemel - kust võtan - praegu on koodis liz '0' pandud (saaksin sama teha)
+x0) Kuhu ma api võtme lisamise panen? Settingud? pickup station? carrier?
+
+
+PLACES:
+1)Muudatuste all on: "Responds place_id changed to DOI code that is supported on other APIs", aga
+DOI koodi ei ole dokumentatsioonis üldse mainitud. Ehk paistab,et see DOI kood on ikka 'place_id' võtme all? 
+
+2) Kas me tahame asukoha tüüpi võimaldada muuta? PRaegu on staatiliselt APT valitud? - ei
+
+
+ORDERS:
+4) Size input is Labels as ‘s',xs’ etc. with backwards compatible - kas hakkan muutma? piisab shipper_package_code -> name/size muudatusest. on vaja. - done
+5) courier service? kas me kasutame? nad paistavad toetavat, kui place_id = 1? 
+6) Return fields are added but will be activated on the next release. (Please don’t use the
+full block if you don’t use it) - meie ei kasuta full blocki onju? - jah
+7) The filed <lqitems> under the LIMITED QUANTITY (LQ) are removed. - kas see või LQ oli lisatud enne? ma ei leidnud. 
+
+TRACKING:
+8) Me ei kasutanudki?? itella_ee_get_tracking_link nagu on aga see ei ole API tracking request. Kas peaks tegema?
+
+API COD Payment (new)
+9) kas lisan API COD Payment (new)? 

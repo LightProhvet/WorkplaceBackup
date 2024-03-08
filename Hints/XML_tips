@@ -1,0 +1,31 @@
+Template can use:
+
+<template id="identifier" inherit_id="origin_module.origin_id" name="2nd_identifier" customize_show="True" active="True">
+
+Inside template we can add data:
+
+<data inherit_id="origin_module.origin_data_id">
+
+Divisions can be:
+
+<div class="container" style="css" >
+
+Classes:
+mt00 -> Margin top
+mb -> Margin bottomg
+
+column classes: 
+col-md-0 -> column of margin ??? 
+col-sm-0
+col-xs-0
+
+
+xpathiga otsimine seest aga lisamine välja:
+<xpath expr="//span[@t-field='line.product_uom_qty']/.." position="before">
+
+custom vaate kasutamine:
+<field name="one2many_field context="{
+                                     'tree_view_ref': 'event.event_type_ticket_view_tree_from_type',
+                                     'form_view_ref': 'event.event_type_ticket_view_form_from_type'
+                                  }"
+/>

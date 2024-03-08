@@ -1,0 +1,4 @@
+import { browser } from "@web/core/browser/browser";
+
+// somewhere in code
+browser.setTimeout(someFunction, 1000);

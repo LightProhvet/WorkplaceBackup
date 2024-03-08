@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="template_type_view" model="ir.ui.view">
+        <field name="name">template.type.view</field>
+        <field name="model">template.type</field>
+        <field name="arch" type="xml">
+            <form name="Template Type">
+                <group>
+                    <field name="name" />
+                    <field name="state" />
+                    <field name="target_parameter" attrs="{'invisible': [('state', '!=', 'push')]}" />
+                    <field name="target_template" attrs="{'invisible': [('state', '!=', 'template')]}" />
+<!--                    <field name="related_template_ids" widget="many2many_taglinks"/>-->
+                    <field name="related_template_ids" invisible="1"/>
+                    <field name="depend_parameters" invisible="1"/>
+                    <field name="product_template_attributes_ids" invisible="1"/>
+                </group>
+                <field name="type_list" mode="tree" attrs="{'invisible': [('state', '=', '')]}">
+                    <tree string="Type Attributes" editable="bottom">
+                        <field name="sequence" widget="handle"/>
+                        <field name="name" attrs="{'readonly': [('state', '=', 'pull')]}"/>
+                        <field name="condition" attrs="{'readonly': [('state', 'not in', ['pull', 'pull_modifier'])]}" />
+                        <field name="domain" attrs="{'readonly': [('state', '!=', 'pull')]}" />
+                        <field name="intersection_check" attrs="{'readonly': [('state', '!=', 'push')]}"/>
+                        <field name="tags" attrs="{'invisible': [('state', '!=', 'push')]}" widget="many2many_tags" placeholder="Choose tags"/>
+                        <field name="preview_product" attrs="{'invisible': [('state', '!=', 'push')]}"/>
+                        <field name="modifier" attrs="{'invisible': [('state', 'not in', ['modifier', 'push'])]}" />
+                        <field name="relation" attrs="{'invisible': [('state', '!=', 'template')]}" />
+                        <field name="float_modifier_select" attrs="{'readonly': [('state', '!=', 'pull_modifier')]}" />
+                        <field name="state" invisible="1"/>
+                        <field name="comments"/>
+                        <field name="selectable_products" invisible="1"/>
+                        <field name="template" invisible="1"/>
+                    </tree>
+                </field>
+                <group>
+<!--                    <button name="show_test_wizard" type="object" string="Show test" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'pull')]}"/>-->
+                    <button name="show_test_wizard" type="object" string="Show test" class="oe_highlight" invisible="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_template_type_tree" model="ir.ui.view">
+        <field name="name">view.template.type.tree</field>
+        <field name="model">template.type</field>
+        <field name="arch" type="xml">
+            <tree string="Template Types">
+                <field name="name"/>
+                <field name="state"/>
+<!--                <field name="related_template_ids" widget="many2many_taglinks"/>-->
+            </tree>
+        </field>
+    </record>
+
+<!--    <record id="configurator_template_test_view" model="ir.ui.view">-->
+<!--        <field name="name">product.configurator.template.test.view</field>-->
+<!--        <field name="model">product.configurator.template.test</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form name="Template Type Test Environment">-->
+<!--                <group>-->
+<!--                    <field name="template_id" options="{'no_create': True, 'no_edit': True, 'no_create_edit': True}"/>-->
+<!--                    <field name="template_type_id" invisible="1"/>-->
+<!--                </group>-->
+<!--                <field name="test_environment_values" >-->
+<!--                    <tree string="Template price" delete="false" create="false" editable="bottom">-->
+<!--                        <field name="name" readonly="1" />-->
+<!--                        <field name="value" />-->
+<!--                    </tree>-->
+<!--                </field>-->
+<!--                <group>-->
+<!--                    <field name="value_string" readonly="1"/>-->
+<!--                    <field name="value" readonly="1"/>-->
+<!--                </group>-->
+<!--            </form>-->
+<!--            <footer>-->
+<!--                <button special="cancel" string="Cancel" class="pull-left btn-secondary"/>-->
+<!--            </footer>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="action_template_type_view" model="ir.actions.act_window">-->
+<!--        <field name="name">Template Type</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">template.type</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--&lt;!&ndash;        <field name="view_type">form</field>&ndash;&gt;-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="oe_view_nocontent_create_smiling_face">-->
+<!--                Click to create a Template Type.-->
+<!--            </p>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="action_template_type_view" model="ir.actions.act_window">
+        <field name="name">Template Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">template.type</field>
+        <field name="view_mode">tree,form</field>
+        <!--            <field name="view_type">form</field>-->
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create_smiling_face">
+                Click to create a template type, to be used in template parameters.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="template_type_menu" name="Template Types" action="action_template_type_view"
+              parent="sale.product_menu_catalog" groups="account.group_account_manager"/>
+</odoo>

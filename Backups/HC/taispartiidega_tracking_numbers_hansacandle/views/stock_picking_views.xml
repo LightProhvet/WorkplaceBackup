@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_picking_form_view_hc" model="ir.ui.view">
+        <field name="name">stock.picking.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button string="Generate Lines"
+                        type="object"
+                        name="action_click_create_move_lines"
+                        attrs="{'invisible': [('use_create_lots', '!=', True)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='lot_ids']" position="after">
+                <field name="print_tray_label_count"
+                       widget=""
+                       string="Label Count"
+                       attrs="{'readonly': [('move_lines_count', '&gt;', 1)], 'column_invisible': False}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

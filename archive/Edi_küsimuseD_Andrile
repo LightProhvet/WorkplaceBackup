@@ -1,0 +1,18 @@
+
+1) ME ei taha ju language-it hard codeida???
+
+        if partner.country_id and partner.country_id.code != "EE":
+            invoice.attrib["languageId"] = "en"
+        invoice.attrib["invoiceId"] = str(self.id)
+
+
+2) OVT ei tohi olla required: https://www.impactic.ee/web#id=5388&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+
+	invoice = etree.SubElement(root, "Invoice")
+        if partner.country_id and partner.country_id.code != "EE":
+            _require(partner.ovt_number, _(f"Recipient requires an OVT number, partner: {partner.name}"))
+
+        invoice.attrib["channelAddress"] = partner.ovt_number
+   
+
+

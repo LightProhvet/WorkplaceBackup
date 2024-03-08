@@ -1,0 +1,75 @@
+1. märts 2024 parandus:
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 41193, '2023 tasaarveldus - vale kogusega tooted nulli', 157.44, 192, current_timestamp(0), 14);
+
+
+2023 Parandused:
+UUED:
+H7-HB15x68STP3(A,2400)
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 31511, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -897.42, 0, current_timestamp(0), 12);
+
+
+H7-LM-HT15x140STS4(A,2800)
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 41203, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -37.80, 0, current_timestamp(0), 12);
+
+
+H7-LM-HT15X140STS4(A,2600)
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 41202, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -35.10, 0, current_timestamp(0), 12);
+
+
+H7-LM28X28SHP(A,2100)
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 39000, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -79.80, 0, current_timestamp(0), 14);
+
+
+
+
+VANAD:
+
+
+H7-LM15x90STP(A,1900) - Sama 
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 33629, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -1877.818, 0, current_timestamp(0), 12);
+
+
+H7-LM15x90STP(A,2200)  - Sama 
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 33632, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -6935.256, 0, current_timestamp(0), 12);
+
+
+H7-LM-HT15x90STP(A,2400)  - Sama 
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 28408, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -6607.462, 0, current_timestamp(0), 12);
+
+
+H7-LM-HT15x140StS4(A,2400)   - Sama 
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 28137, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -453.2, 0, current_timestamp(0), 12);
+
+
+H7-HB-HT28x140SHP(A,3000)   - Sama 
+
+insert into stock_valuation_layer
+(company_id, product_id, description, value, quantity, create_date, categ_id)
+values (1, 32532, '2022 tasaarveldus - nullise hinnaga tarnitud tooted', -864, 0, current_timestamp(0), 13);
+

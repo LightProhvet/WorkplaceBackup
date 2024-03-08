@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--This will create some default records if they do not exist yet. We will always need these so these are auto-rendered. -->
+    <record id="Height" model="template.type">
+        <field name="name">Height</field>
+    </record>
+    <record id="Width" model="template.type">
+        <field name="name">Width</field>
+    </record>
+    <record id="Depth" model="template.type">
+        <field name="name">Depth</field>
+    </record>
+    <record id="Float" model="template.type">
+        <field name="name">Float</field>
+    </record>
+    <record id="Product" model="template.type">
+        <field name="name">Product</field>
+    </record>
+    <record id="Text" model="template.type">
+        <field name="name">Text</field>
+    </record>
+
+    <record id="action_image_generator" model="ir.actions.report">
+        <field name="name">Frame Image Generator</field>
+        <field name="model">product.template</field>
+<!--        <field name="binding_model_id" ref="model_custom_report_options"/>-->
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">product_configurator.image_generator</field>
+        <field name="report_file">product_configurator.image_generator</field>
+        <field name="print_report_name">"Frame Image"</field>
+        <!--        <field name="attachment">'CUSTOM REPORT - %s' % (object.report.name)+ '.pdf'</field>-->
+<!--        <field name="attachment_use">True</field>-->
+<!--        <field name="binding_type">report</field>-->
+    </record>
+</odoo>

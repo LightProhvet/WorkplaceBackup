@@ -1,0 +1,50 @@
+BALSNACK UPGRADE TODO:
+
+PREPARATION
+1) BACKUP LIVE-IST
+2) installi l10n_ee_ic, l10n_ee_ic_reports- juba tehtud?
+3) uninstalli woo_commerce_ept, impersonate
+UPGRADE
+4) saada form ja restore-i mis tagasi saad
+
+RESTORE
+6) hakka kustutama asju:
+
+DELETE FROM ir_asset WHERE path ilike '%/stock_barcode_balsnack/static/src/css/jquery.numpad.css%';
+DELETE FROM ir_asset WHERE path ilike '%/common_connector_library/static/src/scss/graph_widget_ept.scss%';
+DELETE FROM ir_asset WHERE path ilike '%/common_connector_library/static/src/scss/on_boarding_wizards.css%';
+alter table res_company add column sepa_pain_version VARCHAR;
+alter table res_company add column intrastat_default_invoice_transaction_private_person_code_id INTEGER;
+alter table res_company add column intrastat_default_refund_transaction_private_person_code_id INTEGER;
+
+	(no longer relevant, as we have common_connector_library in repo now)
+	DELETE FROM ir_model_data WHERE module = 'common_connector_library' AND model = 'ir.model.fields' AND name ilike '%log_book_id%';
+	DELETE FROM ir_sequence WHERE code='common.log.book.ept';
+
+			(DELETE FROM ir_model_data WHERE module = 'l10n_ee_ic' AND model = 'ir.model.fields' AND name ilike 
+										'%interest_arrear%';)
+			(DELETE FROM ir_model_data WHERE model = 'ir.model.fields' AND name ilike '%sepa_pain_version%';)
+
+5) installi ja uuenda moodulid:
+version_upgrade_models
+Uuenda l10n_ee_ic
+l10n_ee_sepa - tuleb kaasa kummagiga eelmistest?
+
+7) Uuenda: 
+l10n_ee_ic
+account_sepa
+package_report?
+	(common_connector_library
+	stock_cmr_report (?
+	edi_base)
+base
+
+6)uninstalli moodulid
+account_sepa_structured_remittance
+telema_edi_base = base, controller, invoice, partners, purchase, sale, stock
+		kui 3) punkt ei tehtud:
+		impersonate 
+		woo_commerce_ept - pane kood, refresh(uninstall), võta kood ära - töötab - või uninstall enne juba?
+8) õigused on muutunud -> tier Validation 
+9) Üleliigsed tooted tuleb kustutada? hr_expense?: TRANS & ACC, FOOD; MIL; COMM; GIFT; EXP_GEN
+10) Header tuleb uuesti seadistada (logo uuesti dokumendi põhjale lisada

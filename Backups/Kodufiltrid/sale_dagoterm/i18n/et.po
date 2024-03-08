@@ -1,0 +1,343 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * sale_dagoterm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-09 10:24+0000\n"
+"PO-Revision-Date: 2021-12-09 12:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: et\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: sale_dagoterm
+#: model:ir.actions.report,print_report_name:sale_dagoterm.action_report_saleorder_html
+msgid ""
+"(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or "
+"'Order - %s' % (object.name)"
+msgstr ""
+"(object.state in ('draft', 'sent') and 'Pakkumus - %s' % (object.name)) or "
+"'Tellimus - %s' % (object.name)"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_invoice_document_sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_saleorder_document_sale_dagoterm
+msgid "<strong>Contract:</strong>"
+msgstr "<strong>Leping:</strong>"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_saleorder_document_sale_dagoterm
+msgid "<strong>Delivery Location:</strong>"
+msgstr "<strong>Tarnepunkt:</strong>"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_saleorder_document_sale_dagoterm
+msgid "<strong>Delivery Method:</strong>"
+msgstr "<strong>Tarneviis:</strong>"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_invoice_document_sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_saleorder_document_sale_dagoterm
+msgid "<strong>Object:</strong>"
+msgstr "<strong>Objekt:</strong>"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_delivery_document_sale_dagoterm3
+msgid "<strong>Objekt:</strong>"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__active
+msgid "Active"
+msgstr "Aktiivne"
+
+#. module: sale_dagoterm
+#: model:ir.actions.report,name:sale_dagoterm.action_report_invoice_html
+msgid "Arve eelvaade"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_picking
+msgid "Barcode"
+msgstr "Ribakood"
+
+#. module: sale_dagoterm
+#: model:ir.actions.server,name:sale_dagoterm.action_account_move_recompute_tax_grid
+msgid "Compute Tax Grid"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model,name:sale_dagoterm.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_bank_statement_line__contract_id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move__contract_id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_payment__contract_id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__contract_id
+msgid "Contract"
+msgstr "Leping"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_bank_statement_line__contract_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move__contract_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_payment__contract_name
+msgid "Contract Name"
+msgstr "Leping"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner__contract_ids
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_users__contract_ids
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_partner_form_sale_dagoterm
+msgid "Contracts"
+msgstr "Lepingud"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move__display_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_mrp_production__display_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner__display_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__display_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__display_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_report__display_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_stock_picking_type__display_name
+msgid "Display Name"
+msgstr "Kuva nimi"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__date_from
+msgid "From"
+msgstr "Alates"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.partner_contract_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move__id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_mrp_production__id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner__id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_report__id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_stock_picking_type__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_dagoterm
+#: code:addons/sale_dagoterm/models/sale.py:0
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__in_production
+#, python-format
+msgid "In production"
+msgstr "Tootmises"
+
+#. module: sale_dagoterm
+#: code:addons/sale_dagoterm/models/sale.py:0
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__in_stock
+#, python-format
+msgid "In stock"
+msgstr "Laos"
+
+#. module: sale_dagoterm
+#: model:ir.ui.menu,name:sale_dagoterm.menu_action_sales_invoice_report_all
+msgid "Invoices"
+msgstr "Arved"
+
+#. module: sale_dagoterm
+#: model:ir.model,name:sale_dagoterm.model_account_move
+msgid "Journal Entry"
+msgstr "Andmiku kanne"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_delivery_document_sale_dagoterm3
+msgid "Kauba andis üle:"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_delivery_document_sale_dagoterm3
+msgid "Kaup kätte saadud:"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.report_delivery_document_sale_dagoterm3
+msgid "Kuupäev:"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move____last_update
+#: model:ir.model.fields,field_description:sale_dagoterm.field_mrp_production____last_update
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner____last_update
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract____last_update
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order____last_update
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_report____last_update
+#: model:ir.model.fields,field_description:sale_dagoterm.field_stock_picking_type____last_update
+msgid "Last Modified on"
+msgstr "Viimati muudetud (millal)"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__date_action_latest
+msgid "Latest Action"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__name
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.partner_contract_form_view
+msgid "Name"
+msgstr "Nimi"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_mrp_production_filter_sale_dagoterm
+msgid "Not Planned"
+msgstr "Planeerimata"
+
+#. module: sale_dagoterm
+#: code:addons/sale_dagoterm/report/sale_report.py:0
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__partner_object_id
+#, python-format
+msgid "Object"
+msgstr "Objekt"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_bank_statement_line__object_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move__object_name
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_payment__object_name
+msgid "Object Name"
+msgstr "Objekt"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner__object
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_users__object
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_report__partner_object_id
+msgid "Objekt"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_mrp_production_filter_sale_dagoterm
+msgid "Origin"
+msgstr "Allikas"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__partner_id
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.partner_contract_search_view
+msgid "Partner"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.actions.act_window,name:sale_dagoterm.partner_contract_action
+#: model:ir.model,name:sale_dagoterm.model_res_partner_contract
+#: model:ir.ui.menu,name:sale_dagoterm.partner_contract_menu
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.partner_contract_form_view
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.partner_contract_search_view
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.partner_contract_tree_view
+msgid "Partner Contracts"
+msgstr "Partneri lepingud"
+
+#. module: sale_dagoterm
+#: model:ir.model,name:sale_dagoterm.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Noppetüüp"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_mrp_production_filter_sale_dagoterm
+msgid "Planned"
+msgstr "Planeeritud"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_move_form_sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_order_form_sale_dagoterm2
+msgid "Prindi eelvaade"
+msgstr ""
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_mrp_production__categ_id
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_mrp_production_filter_sale_dagoterm
+msgid "Product Category"
+msgstr "Toote kategooria"
+
+#. module: sale_dagoterm
+#: model:ir.model,name:sale_dagoterm.model_mrp_production
+msgid "Production Order"
+msgstr "Tootmistellimus"
+
+#. module: sale_dagoterm
+#: model:ir.actions.report,name:sale_dagoterm.action_report_saleorder_html
+msgid "Quotation / Order HTML"
+msgstr "Pakkumine/Tellimus HTML"
+
+#. module: sale_dagoterm
+#: model_terms:ir.ui.view,arch_db:sale_dagoterm.view_order_form_sale_dagoterm2
+msgid "Recompute Line Info"
+msgstr "Arvuta read uuesti"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_mrp_production__sale_partner_id
+msgid "Sale Partner"
+msgstr "Klient"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_bank_statement_line__object_id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_move__object_id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_account_payment__object_id
+#: model:ir.model.fields,field_description:sale_dagoterm.field_mrp_production__sale_partner_object_id
+msgid "Sale Partner Object"
+msgstr "Objekt"
+
+#. module: sale_dagoterm
+#: model:ir.model,name:sale_dagoterm.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Müügianalüüsi aruanne"
+
+#. module: sale_dagoterm
+#: model:ir.model,name:sale_dagoterm.model_sale_order
+msgid "Sales Order"
+msgstr "Müügitellimus"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,help:sale_dagoterm.field_mrp_production__categ_id
+msgid "Select category for the current product"
+msgstr ""
+
+#. module: sale_dagoterm
+#: code:addons/sale_dagoterm/models/sale.py:0
+#: model:ir.model.fields,field_description:sale_dagoterm.field_sale_order__sent_to_partner
+#, python-format
+msgid "Sent to partner"
+msgstr "Väljastatud"
+
+#. module: sale_dagoterm
+#: model:ir.model.fields,field_description:sale_dagoterm.field_res_partner_contract__date_to
+msgid "To"
+msgstr "Kuni"
+
+#. module: sale_dagoterm
+#: model:ir.actions.report,print_report_name:sale_dagoterm.action_report_invoice_html
+msgid "object._get_report_base_filename()"
+msgstr ""

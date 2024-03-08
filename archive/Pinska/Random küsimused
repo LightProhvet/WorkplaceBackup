@@ -1,0 +1,13 @@
+
+) uom - dictionary - praegu tegin uom.name võtmega - aga need võivad olla duplikaat? võib võtta xml_id aga kasutajale oleks nimi ikkagi mugavaim. Variant ka teha dict kujul {key: [value1, value2]}?
+) MA ei tea, mis ümardamist on mõeldud. mathis floor ja ceil olemas ju.... float_compare(olemas) ja float_round on küll eraldi funktsioonid, kas peaks need panema siis? või mõeldud veel midagi muud?
+) Baasist küsimine - price ja roundinguid? Ma ei ole kunagi küsinud vist. tean, et uom-idel on uom.rounding, aga miks price eraldi. Lisaks kas convertile peaks siis juhendama ka kasutajat, kuidas mis roundi kasutada (pikad helptextid)
+
+fine: 
+1) Ma tegin uom teisenduse funktsiooni eraldi. Mõtlesin, et on parem, pole suurt vahet kas kasutaja kutsub product.convert(qty, to) või convert(qty, product.uom_id, to)
+2) duplicates - default_code based. When editing configurator we insert different dimensions and ... Nimi ja dimensioonid muutuvad - kas ma kirjutan üle? duplikaati ei leia ju, kuna tootekoodi pole samasugust. Näita?
+
+lahti:
+1) Operatsioonide bom lineide peal “consumed in operation” ja operatsioonide linkimine oli lahtine, kas jätan siis praegu tegemata? - muu core peaks suht valmis olema.
+
+copy the Public key and add it as a Deploy key in thee repository settings of your git hosting service

@@ -1,0 +1,5 @@
+ update sale_order set invoice_status='invoiced' where name in ('S00076', 'S00085', 'S00141', 'S00261', 'S00303', 'S00304', 'S00302');
+
+
+select id, name, invoice_status from sale_order where name in ('S00076', 'S00085', 'S00141', 'S00261', 'S00303', 'S00304', 'S00302');
+

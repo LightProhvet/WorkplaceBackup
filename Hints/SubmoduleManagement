@@ -1,0 +1,31 @@
+https://www.appveyor.com/docs/how-to/private-git-sub-modules/
+
+https://docs.readthedocs.io/en/stable/guides/private-submodules.html
+
+https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+https://stackoverflow.com/questions/43208065/git-submodule-cannot-update-submodule-to-an-earlier-revision
+
+git submodule add (clone link)
+
+git submodule init
+git submodule update
+
+# for just update
+git submodule update --remote
+or
+(cd submodule; git fetch;) git merge origin/main
+
+SET BRANCH
+git submodule set-branch --branch develop ./odoo_16e_common
+
+UPDATE NO DEtACHED HEAD V1
+git pull
+git submodule sync    # Ensure the submodule points to the right place
+git submodule update  # Update the submodule  
+git submodule foreach git checkout master  # Ensure subs are on master branch
+git submodule foreach git pull origin master # Pull the latest master
+
+
+UPDATE NO DETATCHED HEAD CORRECT  (sync etc are still good)
+git submodule update --merge

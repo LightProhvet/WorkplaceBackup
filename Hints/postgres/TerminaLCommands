@@ -1,0 +1,17 @@
+1) start postgres
+service postgresql start
+	
+restart postgres
+systemctl restart postgresql
+
+2) connect to postgres
+sudo su postgres 
+
+3) access databases
+psql (-d database -u owner -there_are_more_options)
+
+4) /l
+list all databases
+
+
+

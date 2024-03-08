@@ -1,0 +1,37 @@
+Logimine: 
+ - Lisada "Log" funktsioon, mis on nagu cronidel logimise funktsioon, mis kirjutab ennast ir.logging tabelisse (ehk saab Pythonis välja kutsuda?)
+ - see võiks ka tglt helptextis olla?
+
+Primary toode templateiks - Ühesõnaga see valik on vaja ringi teha, BoM mitte? 
+
+Duplikaadi kontrolli:
+ - kirjelduse põhine
+ - mida tähendab "(kas teha) mõõtude järgi + mingid asjad veel või ka lihtsalt tootekoodi järgi"
+ - kas ma saan õigesti aru, et kontroll peaks olema valikuline - ehk nagu teises pooles kirjeldatud, domeeniga?
+ - (mis on enrichment)
+
+EXEC CONTEXTI LISAMINE:
+ 
+UoM-id exec contexti
+ - Lisada kõikvõimalikud odoo Uom-id dictionarina
+ - funktsioon(kogus, sisend_uom, väljund_uom) returns kogus in väljund_uom
+ - Tootepõhine (template siis, ma eeldan?)
+ - lisada helptexti
+ 
+Ümarduse funktsioonid:
+ - ümardamine ja floatide võrdlus
+ - baasist küsimine (product price ja muid roundinguid) (Mis need kõik on, kust leian?)
+ 
+ Analüüs, mida veel:
+  - collections?
+  - itertools?
+  - jt?
+  
+ Operatsioonide bom lineide peale "consumed in operation" linkida operatsioonidega:
+  - NB! Lahtine
+  - 
+ 
+ 
+ 
+ 
+ 

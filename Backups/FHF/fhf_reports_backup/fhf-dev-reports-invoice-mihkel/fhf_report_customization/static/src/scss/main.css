@@ -1,0 +1,71 @@
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter-ExtraBold.ttf) format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter-Light.ttf) format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter-Thin.ttf) format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(../fonts/Inter-SemiBold.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+.report_footer {
+    font-family: 'Inter', sans-serif !important;
+    width: 100%;
+    height: 155px;
+    background-color: #E8E7F3;
+    color: #474193;
+    line-height: 1.2 !important;
+    padding: 20px;
+    margin-left: 15px;
+    position: relative;
+}
+
+.home_image {
+    top: -6px;
+    height: inherit;
+    position: absolute;
+    right: -35px;
+    z-index: 10;
+}
+
+.footer-container {
+    margin-right: 150px !important;
+    margin-left: 20px !important;
+}
+
+
+.tagline {
+    font-size: 9pt;
+    font-weight: 700;
+    z-index: 11;
+    position: absolute;
+    right: 200px;
+    bottom: 15px;
+}

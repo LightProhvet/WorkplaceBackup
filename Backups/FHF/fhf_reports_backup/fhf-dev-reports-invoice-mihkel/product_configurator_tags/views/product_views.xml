@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_tag_form" model="ir.ui.view">
+        <field name="name">product.configurator.tag.view.form</field>
+        <field name="model">product.configurator.tag</field>
+        <field name="arch" type="xml">
+            <form string="Product Tag">
+                <group>
+                    <field name="name"/>
+                    <field name="products" widget="many2many" mode="tree">
+                        <tree string="Product Tags" editable="bottom" >
+                            <control>
+                                <create string="Add a Product"/>
+                            </control>
+                            <field name="sequence" widget="handle"/>
+                            <field name="name"/>
+<!--                            <field name="configurator_display_name"/>-->
+                            <field name="price_multiplier"/>
+<!--                            <field name="configurator_tag_display_name"/>-->
+                        </tree>
+                    </field>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_tag_tree" model="ir.ui.view">
+        <field name="name">product.configurator.tag.view.tree</field>
+        <field name="model">product.configurator.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Product Tags">
+                <field name="display_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_tag_list" model="ir.ui.view">
+        <field name="name">Product Tags</field>
+        <field name="model">product.configurator.tag</field>
+        <field eval="6" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Product Tags">
+                <field name="display_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_tag_search" model="ir.ui.view">
+        <field name="name">product.tag.view.search</field>
+        <field name="model">product.configurator.tag</field>
+        <field name="arch" type="xml">
+            <search string="Tag">
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+    <record id="product_tag_action_form" model="ir.actions.act_window">
+        <field name="name">Product Tags</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.configurator.tag</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="product_tag_search"/>
+        <field name="view_id" ref="product_tag_tree"/>
+    </record>
+    <menuitem action="product_tag_action_form"
+        groups="base.group_no_one"
+        id="menu_product_tag_action_form"
+        parent="sale.prod_config_main" sequence="3"/>
+
+    <record id="product_template_tag_search_inherit" model="ir.ui.view">
+        <field name="name">product.template.tag.view.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="tag_ids"/>
+            </field>
+        </field>
+    </record>
+
+<!--    <record id="view_product_template_hwd" model="ir.ui.view">-->
+<!--        <field name="name">product.template.volume</field>-->
+<!--        <field name="model">product.template</field>-->
+<!--        <field name="inherit_id" ref="stock.view_template_property_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//label[@for='sale_delay']" position="before">-->
+<!--                <label for="height"/>-->
+<!--                    <div name="height">-->
+<!--                <field name="height"/>-->
+<!--                </div>-->
+<!--                <label for="width"/>-->
+<!--                <div name="width">-->
+<!--                    <field name="width"/>-->
+<!--                </div>-->
+<!--                <label for="depth"/>-->
+<!--                <div name="depth">-->
+<!--                    <field name="depth"/>-->
+<!--                </div>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="product_template_form_inherit" model="ir.ui.view">
+        <field name="name">product.template.view.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h1" position="after">
+                <field name="tag_ids" widget="many2many_tags" placeholder="Tags..."/>
+<!--                <field name="configurator_display_name" placeholder="Display name"/>-->
+<!--                <field name="inner_template" invisible="1" />-->
+<!--                <field name="separate_template" invisible="1" />-->
+<!--                <field name="configurator_relation" readonly="1" />-->
+<!--                <field name="parent_configurator" invisible="1" />-->
+<!--                <field name="configurator_check" invisible="1" />-->
+<!--                <field name="template_relation" invisible="1" />-->
+            </xpath>
+<!--            <xpath expr="//notebook" position="inside">-->
+<!--                <page string="Configurator Variants">-->
+<!--                    <field name="product_configurator_variant_id" mode="tree">-->
+<!--                        <tree editable="bottom">-->
+<!--&lt;!&ndash;                            <field name="var_name"/>&ndash;&gt;-->
+<!--                            <field name="var_field_value"/>-->
+<!--                            <field name="var_float_value"/>-->
+<!--&lt;!&ndash;                            <field name="var_condition"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <field name="var_products"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <field name="var_tags" widget="many2many_tags"/>&ndash;&gt;-->
+<!--                        </tree>-->
+<!--                    </field>-->
+<!--                </page>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//group[@name='group_standard_price']" position="inside">-->
+<!--                <field name="standard_price_unit"/>-->
+<!--                <field name="standard_price_per_unit"/>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+
+<!--    <record id="product_product_ext_form_view2" model="ir.ui.view">-->
+<!--        <field name="name">product_extended.product.form.view</field>-->
+<!--        <field name="model">product.template</field>-->
+<!--        <field name="priority">3</field>-->
+<!--        <field name="inherit_id" ref="product.product_template_only_form_view" />-->
+<!--        <field name="groups_id" eval="[(4, ref('mrp.group_mrp_user'))]"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//button[@name='button_bom_cost']" position="replace">-->
+<!--                <button name="button_bom_cost"-->
+<!--                    string="Compute Price from BoM" type="object"-->
+<!--                    attrs="{'invisible': ['|', '|', ('bom_count', '=', 0), '&amp;', ('valuation', '=', 'real_time'), ('cost_method', '=', 'fifo'), ('configurator_relation', '!=', False), '&amp;', ('inner_template', '=', False)]}"-->
+<!--                    help="Compute the price of the product using products and operations of related bill of materials, for manufactured products only."-->
+<!--                    class="oe_link oe_read_only"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="view_product_tags_tree" model="ir.ui.view">
+        <field name="name">view.product.tags.tree</field>
+        <field name="model">product.configurator.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Product Tags">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_configurator_tags_view" model="ir.actions.act_window">
+            <field name="name">Product Tags</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.configurator.tag</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create_smiling_face">
+                Click to create a tag that can be used to tag products.
+              </p>
+            </field>
+    </record>
+
+    <menuitem id="product_configurator_tags_menu" name="Configurator Tags" action="action_product_configurator_tags_view"
+              parent="sale.product_menu_catalog" groups="account.group_account_manager"/>
+</odoo>

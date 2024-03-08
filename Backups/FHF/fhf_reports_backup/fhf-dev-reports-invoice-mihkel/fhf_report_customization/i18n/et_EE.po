@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fhf_report_customization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 10:53+0000\n"
+"PO-Revision-Date: 2023-03-29 10:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fhf_report_customization
+#: model_terms:ir.ui.view,arch_db:fhf_report_customization.external_layout_inherited
+msgid "ID:"
+msgstr "Reg. nr:"
+
+#. module: fhf_report_customization
+#: model_terms:ir.ui.view,arch_db:fhf_report_customization.external_layout_inherited
+msgid "Logo"
+msgstr ""
+
+#. module: fhf_report_customization
+#: model_terms:ir.ui.view,arch_db:fhf_report_customization.external_layout_inherited
+msgid "SWIFT/BIC:"
+msgstr ""
+
+#. module: fhf_report_customization
+#: model_terms:ir.ui.view,arch_db:fhf_report_customization.external_layout_inherited
+msgid "VAT:"
+msgstr "KMKR nr:"

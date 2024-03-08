@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_sale_dagoterm2_extended" model="ir.ui.view">
+        <field name="name">view.order.form.sale.dagoterm.extended</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_dagoterm.view_order_form_sale_dagoterm2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="original_partner_id" attrs="{'invisible':[('original_partner_id','=','partner_id')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="partner_object_id" context="{'default_object': True, 'default_is_company': False, 'default_customer': 0}" optional="show"/>
+            </xpath>
+<!--            <xpath expr="//field[@name='order_line']/tree" position="attributes">-->
+<!--                <attribute name="group_by">partner_object_id</attribute>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record model="ir.ui.view" id="product_normal_form_view">
+        <field name="name">product_normal_form_view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='inventory']" position="inside">
+                <group name="dimensions" string="Dimensions" colspan="2">
+                    <field  name="dimensional_uom_id" />
+                    <field  name="lock_length" invisible="1"/>
+                    <field  name="lock_height" invisible="1"/>
+                    <field  name="lock_width" invisible="1"/>
+                    <field  name="product_length" attrs="{'readonly': [('lock_length', '=', True)]}"/>
+                    <field  name="product_height" attrs="{'readonly': [('lock_height', '=', True)]}"/>
+                    <field  name="product_width" attrs="{'readonly': [('lock_width', '=', True)]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_only_form_view">
+        <field name="name">product_template_form_view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='inventory']" position="inside">
+                <group
+                    string="Dimensions"
+                    name="dimensions"
+                    colspan="2"
+                >
+                    <field  name="dimensional_uom_id" />
+                    <field  name="template_length" attrs="{'required': [('lock_length', '=', True)]}"/>
+                    <field  name="template_height" attrs="{'required': [('lock_height', '=', True)]}"/>
+                    <field  name="template_width" attrs="{'required': [('lock_width', '=', True)]}"/>
+                    <field  name="lock_length"/>
+                    <field  name="lock_height"/>
+                    <field  name="lock_width"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

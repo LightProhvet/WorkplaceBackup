@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stock_picking_form_view_fhf" model="ir.ui.view">
+        <field name="name">stock.picking.form.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button string="Create Serial/Lot"
+                        type="object"
+                        name="action_create_new_lot"/>
+            </xpath>
+            <xpath expr="//field[@name='lot_ids']" position="replace">
+                <field name="lot_ids" widget="many2many_tags"
+                       groups="stock.group_production_lot"
+                       attrs="{'invisible': ['|', ('show_details_visible', '=', False), ('has_tracking', '!=', 'serial')]}"
+                       optional="hide"
+                       options="{'create': [('parent.use_create_lots', '=', True)]}"
+                       context="{'default_company_id': company_id, 'default_product_id': product_id, 'active_picking_id': parent.id}"
+                       domain="[('product_id','=',product_id)]"
+                /> <!-- Original field.-->
+                <button string="New Lot"
+                        type="object"
+                        groups="stock.group_production_lot"
+                        name="action_create_new_lot"
+                        context="{'default_product_id': product_id}"
+                        attrs="{'invisible': ['|', ('lot_ids', '=', False), ('has_tracking', '=', 'False')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+

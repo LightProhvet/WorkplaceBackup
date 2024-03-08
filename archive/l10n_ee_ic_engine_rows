@@ -1,0 +1,46 @@
+stock_move_id.origin -> annab svl-ile
+aml peal stock_valuation_layer_ids		
+
+OLULISED:
+Investeeringud tütar- ja sidusettevõtjatesse
+Nõuded ja ettemaksed (x2)
+Varud
+Eraldised (x2)
+Võlad ja ettemaksed (x2)
+
+MUUD grupeeringud:
+Raha ja pangakontod - account_id
+Finantsinvesteeringud - account_id
+Nõuded ostjate vastu
+Nõuded emaettevõtja ja teiste kons. grupi ettev. vastu
+Nõuded sidusettevõtjate vastu
+Nõuded aktsionäride vastu
+Muud lühiajalised nõuded
+Intressid
+Dividendid
+Muud viitlaekumised
+Maksude ettemaksed ja tagasinõuded
+Tulevaste perioodide kulud
+Tooraine ja materjal
+Lõpetamata toodang
+Valmistoodang
+Müügiks ostetud kaubad
+Bioloogilised varad
+Investeeringud tütar- ja sidusettevõtjatesse !!!
+Finantsinvesteeringud
+Nõuded ja ettemaksed (pikk) !!!
+Kinnisvarainvesteeringud
+Maa ja ehitised
+Masinad ja seadmed
+Muu materiaalne põhivara
+Lõpetamata ehitised
+Ettemaksed materiaalse põhivara eest
+Bioloogilised varad
+
+
+Võlad ja ettemaksed !!!
+
+
+
+
+

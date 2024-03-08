@@ -1,0 +1,67 @@
+Live läheb. fhf: fhf_sale_customization, 
+
+HANSACANDLE:
+account_invoice_reports_hc:
+
+Müügiarve kujundus - 
+https://www.impactic.ee/web#id=4895&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+Arvemallid - 
+https://www.impactic.ee/web#id=4630&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+ Selle all olid viidatud:
+	Saateleht - 
+	https://www.impactic.ee/web#id=4696&menu_id=241&cids=1&action=951&model=project.task&view_type=form 
+	Raamatupidamise blanketi täiustused - 
+	https://www.impactic.ee/web#id=4953&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+OST - Template kuva väljade lisamine - 
+https://www.impactic.ee/web#id=5075&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+
+tracking_numbers_hansacandle
+Toote seeria ja partiinumbri loomine - 
+https://www.impactic.ee/web#id=4702&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+Etiketid - 
+https://www.impactic.ee/web#id=4697&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+Täispartiide reserveerimine - 
+https://www.impactic.ee/web#id=5017&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+Kontakt Kaardil lisa sidusväli - 
+https://www.impactic.ee/web#id=5001&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+
+
+
+FHF: 
+fhf_report_customization:
+
+fhf_sale__customization:
+Ära kaotatada Set Quantity Laovaates - 
+https://www.impactic.ee/web#id=5051&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+Luua lisaõigus "Tühistamine" - 
+https://www.impactic.ee/web#id=5058&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+fhf_secondary_unit_customization: 
+
+(Mitte arendatavad moodulid on: 
+product_secondary_unit
+purchase_order_secondary_unit
+purchase_stock_secondary_unit
+sale_order_secondary_unit
+stock_secondary_unit)
+
+
+
+ENERGEX:
+energex_project_management:
+Lisa õiguste grupp - 
+https://www.impactic.ee/web#id=4747&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+secondary_unit_customization:
+Müügimoodulis Abiühik vaja -  
+https://www.impactic.ee/web#id=5024&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+smart_time_sheets:
+Timesheet arendus - 
+https://www.impactic.ee/web#id=4945&menu_id=241&cids=1&action=951&model=project.task&view_type=form
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_partner_form_sale_dagoterm" model="ir.ui.view">
+    <field name="name">res.partner.form.inherit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <field name="company_type" position="before">
+            <label for="object"/>
+            <field name="object"/>
+        </field>
+        <field name="category_id" position="after">
+            <field name="sale_route_id"/>
+        </field>
+        <notebook position="inside">
+            <page name="contracts_page" string="Contracts">
+                <field name="contract_ids" readonly="0">
+                    <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </tree>
+                </field>
+            </page>
+        </notebook>
+    </field>
+</record>
+
+<record id="partner_contract_form_view" model="ir.ui.view">
+    <field name="name">res.partner.contract.form</field>
+    <field name="model">res.partner.contract</field>
+    <field name="arch" type="xml">
+        <form string="Partner Contracts">
+            <sheet>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only" string="Name"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="partner_id" options="{'no_create': True}"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="partner_contract_tree_view" model="ir.ui.view">
+    <field name="name">res.partner.contract.tree</field>
+    <field name="model">res.partner.contract</field>
+    <field name="arch" type="xml">
+        <tree string="Partner Contracts">
+            <field name="name"/>
+            <field name="date_from"/>
+            <field name="date_to"/>
+        </tree>
+    </field>
+</record>
+
+<record id="partner_contract_search_view" model="ir.ui.view">
+    <field name="name">res.partner.contract.view.search</field>
+    <field name="model">res.partner.contract</field>
+    <field name="arch" type="xml">
+        <search string="Partner Contracts">
+            <field name="name"/>
+            <field name="partner_id"/>
+            <field name="date_from"/>
+            <field name="date_to"/>
+            <group expand="0" string="Group By">
+                <filter string="Partner" name="group_by_partner_id" domain="[]" context="{'group_by': 'partner_id'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="partner_contract_action" model="ir.actions.act_window">
+    <field name="name">Partner Contracts</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.partner.contract</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="partner_contract_search_view"/>
+</record>
+
+<menuitem id="partner_contract_menu"
+          name="Partner Contracts"
+          action="partner_contract_action"
+          parent="contacts.res_partner_menu_config"
+          sequence="5"/>
+
+</odoo>

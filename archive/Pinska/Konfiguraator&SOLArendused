@@ -1,0 +1,23 @@
+SO peal konfiguratsiooni muutmine peale esmast loomist
+ - SOL peale konfiguraatori reference
+ - (duplikaatide kontrollist tulenevad) kontrollid, millal võib muuta/kustutada
+ - 
+ 
+SO stateidel põhinevad puhastused ja lukustused
+  - kui SO kinnitatud, ei saa konfiguratsiooni enam muuta
+  - otsingutabeli saab puhastada, jätta alles ainult valitud toode.
+  
+Primary valiku stock levelite sõltuvus SO väljadest
+ - stock level teha sõltuvaks SO peal valitud laost
+ - viia üle kõik väljad stock levelite arvutuskäiku, mida ka SOL-is kasutatakse
+ - STOCK LEVELID PEAVAD KONFIGURAATORI JA SO JA SOL ARVUTUSKÄIKUDE JÄRGI SAMAD OLEMA
+ 
+Konfiguraatorile SOL kogus
+ - võimalda määrata talade kogust (SOL-idele jõudvat)
+ - hiljem lisada ka kulu ja müügihinna arvutamise otse konfiguraatori peal enne kinnitamist
+ 
+ 
+   
+
+
+  

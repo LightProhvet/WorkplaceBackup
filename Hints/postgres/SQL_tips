@@ -1,0 +1,20 @@
+BASICS:
+
+CREATE TABLE test (
+    id INT,
+    product VARCHAR(50),
+    price DECIMAL(10, 2)
+);
+
+INSERT INTO test (id, product, price) VALUES
+(1, 'B', 39),
+(1, 'B', 15),
+(2, 'A', 12),
+
+DELETE FROM test WHERE product='A';
+
+LEFT JOIN to find uncommon rows (new rows for example)
+
+EXCEPT - returns difference
+
+

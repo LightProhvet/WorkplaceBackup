@@ -1,0 +1,8 @@
+secondary unit notes:
+
+stock_secondary_unit_quantities:
+	stock_move.py
+	1) Should we only onchange moves that are not "done" - _helper_target_field_qty_done && _helper_target_field_secondary_uom_qty_done
+	2) Are there any other functionalities that we should check/override?
+
+

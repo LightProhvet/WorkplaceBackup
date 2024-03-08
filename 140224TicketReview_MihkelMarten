@@ -1,0 +1,61 @@
+Summary:
+Pinska: 3 - korras
+Liigu: 6 (4 korras, 2 panin rahavoogude alla... kui saab võiks ära võtta )
+Warmeston: 4-1 korras
+ComDecor: 1 - korras (niigi üle billinud)
+ELT: 3-1 - korras
+Huum: 2 (korras)
+Valley: 3 (korras
+Baltoil: 3 KOrras
+
+Standwood: 2
+Energex: 1
+Pedro: 1
+Hansa: 2
+
+Planet: 1
+
+Täna (14.02.2024) tehtud Mihkliga seotud piletite ülevaatus (algselt mõeldud PR-ide trackimine):
+9:05 alustasin
+
+1) Pinska "teha korralik ümardus abiühikutele" (PR)
+2) Liigu "ES lokalisatsioon annab veateadet" (PR)
+3) Liigu "Põhivara suurendamine Liigu jaoks veel ei toimi" (PR)
+4) Pinska "Müügiridade järjekord suurte tellimustega" (PR)
+5) Liigu "Maksete sobitamine ja mõned testimisel ilmnenud teemad" (PR)
+6) Warmeston "Perioodi valik planneri List vaatele" (lives juba)
+7) Comdecor "PO receipt Source Document täiendada PO Source Document sisuga" (lives juba)
+8) (ELT) "Sobitamine müügiarvest suurema summa puhul" (PR eile tehtud)
+
+10:42 lõpetasin (1h 37 min, millest mingi 15-30 minta Andri, Karini ja Martiga arutelu deployment workflow osas)
+Kliendi testimises piletid alustasin 10.42 (5 min läks Granimax Forge peale)
+1) Standwood "Kliendipõhised koodid" (live juba)
+2) Standwood "Hindamiskihi parandus 3 toodet" (live juba)
+3) (Energex suhtlesin "Studio field error baaskoodi uuendusega" ) 
+4) Pedrobeat "Merit Palk eksport annab Arvuta nupu vajutamisel veateate" (live juba)
+5) Huum "PO korda tegemine (vaja tagastada)" (live juba)
+6) Liigu EMTA KMD report kuvab teiste riikide makse (live juba) 
+7) Hansa Candle Tootmistellimusel veateade (lives juba)
+
+11:06 Lõpetasin (24-5=19 min)
+Meie testimises alustasin 11.06
+1) Hansacandle "Prognoos kuupäevade järgi" (4 kuu teade)
+2) Warmeston "Kuluaruande staatus peale postitamist ja maksmist pole "Tehtud" (3 kuu teade)
+3) Huum "Konsolideerimise aruannetele periood" (2 kuu teade)
+4) ELT "uus Raport - koond RTI ülevaade väljastuse kohta" (2 kuu ja projekti puudumise teade)
+5) Valley "Konfiguraatori täiendused" (tagasiside meeskonna vanemkonsultandile) (3 min panemata)
+( 6) Warmeston Tootmispreemia arvutus, 16+ päeva testikas)
+( 6) Warmeston "Põhivara alamvaral graafiku loomine" (13 päeva testikas, teise piletiga seotud live-is) (3 min pandud)
+8) Pinska "konfiguraatorite arhiveerimine" (hiljutine, no action)
+9) Valley "Kohalolekute mooduli vaate täiendus" (8 päeva testis, no action)
+10) Valley "Tootmise abiühikud tööle saada" (tagasiside meeskonna vanemkonsultandile)
+11) Liigu (Probleemid uues testikas) (Tagasiside meeskonna vanemkonsultandile) 
+12) Baltoil "Konto kuluaruandel täiendamine" (5 päeva testis, no action)
+13) ELT Sobitamise automaatne kinnitamine ei toimi (21 päeva testimises (arendust polnudki), tagasiside määratud isikutele)
+14) Baltoil "Saatelehe saatmine e-mailile" (juba liveis + teavitus)
+15) Planet "Kustutatud DB kirjete trackimine" (7 päeva testikas, no action)
+16) Baltoil "Tootmistellimusele lisada reaalse laokoguse ühik" (7 päeva testikas, no action)
+17) Liigu "Ostuarvete otsing Totali kaudu" (2 päeva testikas, no action)
+
+11:33 lõpetasin (27-3=24 min)
+Kokku 2h 28min

@@ -1,0 +1,20 @@
+Fixida vajadus vajutada tühjalt save nuppu:
+ - uurida, kust tuleb, kas lihtne või raske parandada
+ - parandada :D 
+ 
+Lubada peita primary valikute One2many listi
+ - SO peal wizadis, konfiguraatori all võimaldada listi peitmine 
+
+Inputide UI teha ilusaks
+ - uut o2m list/line widgetit on vaja (keeruline?)
+ 
+Müügihinna arvutus elegantsemaks
+ - Analüüs kas tõsta müügihinna arvutamine eraldi või mitte (hetkel enrichmenti käigus)
+ 
+Luua näited ja õppevideod
+ - paremad ku iteamsi recordingud :)
+ 
+ 
+TOOTMISE ARENDUSED:
+
+ - tootmisaknasse suuremat lisandit, kus saab komponente juurde registreerida, aga kontrollitakse, et TEMPLATE oleks sama. (ehk saab variatsiooni muuta, aga template sama)

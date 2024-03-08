@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<template id="report_picking" inherit_id="stock.report_picking">
+    <xpath expr="//table[2]/tbody" position="replace">
+        <t t-set="div" t-value="False"/>
+        <t t-foreach="o.move_ids_without_package.sorted(key=lambda m: m.location_id.id).sorted(key=lambda m: m.sale_section_id)" t-as="move">
+            <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id).sorted(key=lambda ml: ml.sale_section_name)" t-as="ml">
+                <t t-if="div">
+                    <t t-if="div != ml.sale_section_name">
+                        <t t-set="div" t-value="ml.sale_section_name"/>
+                        <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+                            <td>
+                                <span t-esc="div"/>
+                            </td>
+                            <td/>
+                            <td/>
+                        </tr>
+                    </t>
+                </t>
+                <t t-else="">
+                    <t t-set="div" t-value="ml.sale_section_name"/>
+                    <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+                        <td>
+                            <span t-esc="div"/>
+                        </td>
+                        <td/>
+                        <td/>
+                    </tr>
+                </t>
+
+                <tr>
+                    <td>
+                        <span t-field="ml.product_id.display_name"/>
+                        <br/>
+                        <span t-field="ml.product_id.description_picking"/>
+                    </td>
+                    <td>
+                        <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+                        <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+                        <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+
+                    </td>
+                    <td width="20%" t-if="o.picking_type_id.code != 'incoming'">
+                        <span t-esc="ml.location_id.display_name"/>
+                        <t t-if="ml.package_id">
+                            <span t-field="ml.package_id"/>
+                        </t>
+                    </td>
+                    <td t-if="o.picking_type_id.code != 'outgoing'">
+                        <div>
+                            <span t-field="ml.location_dest_id"/>
+                            <t t-if="ml.result_package_id">
+                                <span t-field="ml.result_package_id"/>
+                            </t>
+                        </div>
+                    </td>
+                    <td width="15%" class=" text-center h6" t-if="has_serial_number">
+                        <img t-if="has_serial_number and (ml.lot_id or ml.lot_name)"
+                             t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', ml.lot_id.name, 600, 100)"
+                             style="width:100%;height:35px;" alt="Barcode"/>
+
+                    </td>
+                    <td width="15%" class="text-center" t-if="has_barcode">
+                        <t t-if="product_barcode != move.product_id.barcode">
+                            <span t-if="move.product_id and move.product_id.barcode">
+                                <img t-if="len(move.product_id.barcode) == 13"
+                                     t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', move.product_id.barcode, 600, 100)"
+                                     style="width:100%;height:35px" alt="Barcode"/>
+                                <img t-elif="len(move.product_id.barcode) == 8"
+                                     t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN8', move.product_id.barcode, 600, 100)"
+                                     style="width:100%;height:35px" alt="Barcode"/>
+                                <img t-else=""
+                                     t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.barcode, 600, 100)"
+                                     style="width:100%;height:35px" alt="Barcode"/>
+
+                            </span>
+                            <t t-set="product_barcode" t-value="move.product_id.barcode"/>
+                        </t>
+                    </td>
+                </tr>
+            </t>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

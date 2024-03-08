@@ -1,0 +1,33 @@
+TODO:
+1) Changed endpoints:
+1.1) Vaheta URLid: api/ -> api/ext/v1	mitte nii lihtne tglt, aga sellejärgi saad otsida
+NT: POST http://iseteenindus.smartpost.ee/api/ -> GET https://gateway.posti.fi/smartpost/api/ext/v1/labels?
+1.1.1) orders - DONE
+
+2) New Authentication: - DONE
+2.1) Kustuta kood: <authentication>
+<user>string</user>
+<password>string</password>
+</authentication>
+2.2) asenda Header parameetriga (leia header, kui 2.1 polnud seal): Authorization: {key}
+
+3)API Request and Response change
+3.1) PLaces
+3.1.1) places request saab väljundit muuta - proovi mõlemad läbi. - TODO märgitud 
+3.1.2) Parameter Country on NÕUTUD - throw
+3.1.3) Parameter "Type" possible values -> ['apt', 'ipb', 'po', 'pudo'] and If type is not filled then gives all types
+3.1.4) Responds place_id changed to DOI code that is supported on other APIs - uuri välja mis tähendab. 
+3.1.5) Responds the value Place type - “item/type” is added - uuri välja
+
+3.2) API Courier Visit Time
+
+3.3) API Orders
+
+3.4) API Labels
+
+3.5) API Tracking
+
+3.6) API COD Payment (new)
+
+4)Removed old API request
+

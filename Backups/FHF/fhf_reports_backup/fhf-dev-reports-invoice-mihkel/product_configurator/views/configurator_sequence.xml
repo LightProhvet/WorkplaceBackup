@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_product_configurator" model="ir.sequence">
+        <field name="name">Product Configurator</field>
+        <field name="code">product.configurator</field>
+<!--            <field name="prefix">SO</field>-->
+        <field name="padding">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

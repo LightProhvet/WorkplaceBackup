@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_task_kanban_smart_inherit" model="ir.ui.view">
+        <field name="name">project.task.kanban</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_kanban_record_headings']" position="replace">
+                <div class="o_kanban_record_headings">
+                    <div class="row">
+                        <div class="col-7">
+                            <strong class="o_kanban_record_title">
+                                <s t-if="!record.active.raw_value">
+                                    <field name="name" widget="name_with_subtask_count"/>
+                                </s>
+                                <t t-else="">
+                                    <field name="name" widget="name_with_subtask_count"/>
+                                </t>
+                            </strong>
+                            <span invisible="context.get('default_project_id', False)">
+                                <br/>
+                                <field name="project_id" widget="project_private_task" options="{'no_open': True}"/>
+                            </span>
+                            <span t-if="record.allow_milestones.raw_value and record.milestone_id.raw_value"
+                                  t-attf-class="{{record.has_late_and_unreached_milestone.raw_value ? 'text-danger' : ''}}">
+                                <br/>
+                                <field name="milestone_id" options="{'no_open': True}"/>
+                            </span>
+                            <br/>
+                            <t t-if="record.partner_id.value">
+                                <span t-if="!record.partner_is_company.raw_value">
+                                    <field name="commercial_partner_id"/>
+                                </span>
+                                <span t-else="">
+                                    <field name="partner_id"/>
+                                </span>
+                            </t>
+                            <t t-else="record.email_from.raw_value">
+                                <span>
+                                    <field name="email_from"/>
+                                </span>
+                            </t>
+                        </div>
+                        <div class="col-4">
+                            <field name="company_id" invisible="1"/>
+                            <field name="display_timesheet_timer" invisible="1"/>
+                            <field name="timer_pause" invisible="1"/>
+                            <field name="display_timer_start_primary" invisible="1"/>
+                            <field name="display_timer_start_secondary" invisible="1"/>
+                            <field name="display_timer_stop" invisible="1"/>
+                            <field name="display_timer_pause" invisible="1"/>
+                            <field name="display_timer_resume" invisible="1"/>
+                            <button class="btn-secondary justify-content-start" name="action_timer_start" type="object"
+                                    string="Start"
+                                    data-hotkey="z" title="Start timer"
+                                    attrs="{'invisible': ['|', ('display_timer_start_primary', '=', False), ('encode_uom_in_days', '=', True)]}"
+                                    groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                            <button class="btn-secondary" name="action_timer_start" type="object" string="Start"
+                                    data-hotkey="z" title="Start timer"
+                                    attrs="{'invisible': ['|', ('display_timer_start_secondary', '=', False), ('encode_uom_in_days', '=', True)]}"
+                                    groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                            <button class="btn-primary o_fsm_stop" name="action_timer_stop" type="object" string="Stop"
+                                    data-hotkey="z" title="Stop timer"
+                                    attrs="{'invisible': ['|', ('display_timer_stop', '=', False), ('encode_uom_in_days', '=', True)]}"
+                                    groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                            <!--attrs="{'invisible':[('binding_model_id','!=',False)]}" icon="fa-plus-square"
+                            help="Display an option on related documents to print this report" class="oe_stat_button"-->
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='o_kanban_record_body']" position="replace">
+                <div class="o_kanban_record_body">
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <div t-if="record.date_deadline.raw_value" name="date_deadline"
+                         attrs="{'invisible': [('is_closed', '=', True)]}">
+                        <field name="date_deadline" widget="remaining_days"/>
+                    </div>
+                    <div t-if="record.displayed_image_id.value">
+                        <field name="displayed_image_id" widget="attachment_image"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_task_form2_inherit_smartsheets" model="ir.ui.view">
+        <field name="name">project.task.form.smart.timesheet</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_timer_resume']" position="replace"/>
+            <xpath expr="//button[@name='action_timer_pause']" position="replace"/>
+            <xpath expr="//button[@name='action_open_task']" position="before">
+                <field name="company_id" invisible="1"/>
+                <field name="display_timesheet_timer" invisible="1"/>
+                <field name="timer_pause" invisible="1"/>
+                <field name="display_timer_start_primary" invisible="1"/>
+                <field name="display_timer_start_secondary" invisible="1"/>
+                <field name="display_timer_stop" invisible="1"/>
+                <field name="display_timer_pause" invisible="1"/>
+                <field name="display_timer_resume" invisible="1"/>
+                <button class="btn-secondary" name="action_timer_start" type="object"
+                        style="width:100px;"
+                        string="Start"
+                        data-hotkey="z" title="Start timer"
+                        attrs="{'invisible': [('display_timer_start_primary', '=', False)]}"
+                        groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                <button class="btn-secondary" name="action_timer_start" type="object" string="Start"
+                        style="width:100px;"
+                        data-hotkey="z" title="Start timer"
+                        attrs="{'invisible': [('display_timer_start_secondary', '=', False)]}"
+                        groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+                <button class="btn-primary o_fsm_stop" name="action_timer_stop" type="object" string="Stop"
+                        style="width:100px;"
+                        data-hotkey="z" title="Stop timer"
+                        attrs="{'invisible': [('display_timer_stop', '=', False)]}"
+                        groups="hr_timesheet.group_hr_timesheet_user" icon="fa-clock-o"/>
+            </xpath>
+            <xpath expr="//field[@name='timesheet_ids']/tree/field[@name='unit_amount']" position="before">
+                <field name="start_time" optional="show"/>
+                <field name="end_time" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+<!--    <record id="project_sharing_inherit_project_task_view_form" model="ir.ui.view">-->
+</odoo>
+
+
+

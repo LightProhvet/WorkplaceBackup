@@ -1,0 +1,4 @@
+Relational väljade widgetite fail algab:
+odoo.define('web.relational_fields', function (require) {
+"use strict";
+

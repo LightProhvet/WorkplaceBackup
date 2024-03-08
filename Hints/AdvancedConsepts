@@ -1,0 +1,53 @@
+SQL constrains -- an attribute on all models, to set DB constraints:
+_sql_constraints = [
+        ('check_percentage', 'CHECK(percentage >= 0 AND percentage <= 100)',
+         'The percentage of an analytic distribution should be between 0 and 100.')
+    ]
+    
+    
+upgrade:
+python3 <(curl -s https://upgrade.odoo.com/upgrade) test -d balsnack_live_1_281023 -t <target odoo version>
+
+
+
+Maybe disable field:
+
+ def _disable_field(self, field_name):
+        field = self._fields.get(field_name)
+        if field:
+            # Disable compute and precompute for the field
+            field.compute = None
+            field.inverse = None
+            field.search = None
+            field.depends = None
+            field.store = False
+            field.string = field.string + " - Disabled"
+
+    def init(self):
+        """
+        Check which secondary_units are installed and disable prices accordingly
+        """
+        super().init()
+
+        price_field = "secondary_uom_price"
+        account_move_secondary_unit = self.env['ir.module.module'].search([('name', '=', 'account_move_secondary_unit'), ('state', '=', 'installed')])
+        sale_order_secondary_unit = self.env['ir.module.module'].search([('name', '=', 'sale_order_secondary_unit'), ('state', '=', 'installed')])
+        purchase_order_secondary_unit = self.env['ir.module.module'].search([('name', '=', 'purchase_order_secondary_unit'), ('state', '=', 'installed')])
+        stock_secondary_unit = self.env['ir.module.module'].search([('name', '=', 'stock_secondary_unit'), ('state', '=', 'installed')])
+        mrp_secondary_unit = self.env['ir.module.module'].search([('name', '=', 'mrp_secondary_unit'), ('state', '=', 'installed')])
+
+        if account_move_secondary_unit:
+            self.env['account.move.line'].with_context(active_test=False)._disable_field(price_field)
+        if sale_order_secondary_unit:
+            self.env['sale.order.line'].with_context(active_test=False)._disable_field(price_field)
+        if purchase_order_secondary_unit:
+            self.env['purchase.order.line'].with_context(active_test=False)._disable_field(price_field)
+        if stock_secondary_unit:
+            self.env['stock.move'].with_context(active_test=False)._disable_field(price_field)
+            self.env['stock.move.line'].with_context(active_test=False)._disable_field(price_field)
+        if mrp_secondary_unit:
+            self.env['mrp.bom'].with_context(active_test=False)._disable_field(price_field)
+            self.env['mrp.bom.line'].with_context(active_test=False)._disable_field(price_field)
+            self.env['mrp.bom.byproduct'].with_context(active_test=False)._disable_field(price_field)
+            self.env['mrp.production'].with_context(active_test=False)._disable_field(price_field)
+

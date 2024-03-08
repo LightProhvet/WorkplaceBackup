@@ -1,0 +1,7 @@
+import { registry } from "./core/registry";
+
+class MyFieldChar extends owl.Component {
+    // some code
+}
+
+registry.category("fields").add("my_field_char", MyFieldChar);

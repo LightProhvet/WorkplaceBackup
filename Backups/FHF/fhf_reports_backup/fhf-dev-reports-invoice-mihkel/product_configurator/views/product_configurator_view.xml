@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_configurator_view" model="ir.ui.view">
+        <field name="name">product.configurator.view</field>
+        <field name="model">product.configurator</field>
+        <field name="arch" type="xml">
+            <form name="Product Configurator">
+                <group>
+                    <field name="template_name" context="{'order_display': 'name asc'}"/>
+                    <field name="check" invisible="1"/>
+                    <field name="duplicate_configurator" placeholder="Choose an existing configurator, if you wish to duplicate its values" attrs="{'invisible': [('template_name', '=', False)]}"/>
+<!--                    <field name="pull_list" invisible="1"/>-->
+                    <field name="routing" invisible="1"/>
+                    <field name="order_id" invisible="1"/>
+                    <field name="configurator_file" widget="many2many_binary" string="Attach a file" attrs="{'invisible': [('template_name', '=', False)]}"/>
+                </group>
+                <field name="configurator_product_description" string="Product Description: " attrs="{'invisible': [('template_name', '=', False)]}" readonly="1" />
+                <field name="name" placeholder="The configuration name will be auto generated" invisible="1"/>
+                <field name="template_parameters" options="{'no_open': True, 'no_create': True}" attrs="{'invisible': [('template_name', '=', False)]}" mode="tree" widget="configurator_one2many">
+<!--                <field name="template_parameters" mode="tree" context="{'default_template_name': active_id}" domain="[('hidden_status', '=', False)]" widget="configurator_one2many" attrs="{'invisible': [('template_name', '=', False)]}">-->
+<!--                    <tree string="Parameters" decoration-muted="readonly_status=='true'" editable="bottom" delete="false" create="false" edit="false" force_save="1" limit="400">-->
+<!--                    <tree string="Parameters" editable="bottom" delete="false" create="false" edit="false">-->
+                    <tree string="Parameters" delete="false" create="false" force_save="1" options="{'no_open': True, 'no_create': True}" editable="bottom">
+                        <field name="line_config" invisible="1"/>
+<!--                        <field name="parameter_name" readonly="1" force_save="1" string=" " attrs="{'invisible': [('hidden_status', '=', True)]}" options="{'no_create': True, 'no_edit': True, 'no_open': True, 'no_create_edit': True}"/>-->
+                        <field name="parameter_name" readonly="1" force_save="1"  attrs="{'invisible': [('hidden_status', '=', True)]}" options="{'no_open': True, 'no_edit': True, 'no_create': True}"/>
+                        <field name="float_values" string=" " options="{'no_create': True, 'no_open': True, 'no_create_edit': True}" style="text-align:left;" attrs="{'readonly': [('readonly_status', '=', True)]}" force_save="1"/>
+<!--                        <field name="float_values" options="{'no_open': True, 'no_create': True}"/>-->
+<!--                        <field name="products" options="{'no_open': True, 'no_create': True}"/>-->
+                        <field name="products" string=" " context="{'configurator_display_name': 1, 'tree_view_ref': 'configurable_products.inherit_view_product_tree'}" options="{'no_create': True, 'no_edit': True, 'no_open': True, 'no_create_edit': True}" attrs="{'readonly': [('readonly_status', '=', True)]}"/>
+                        <field name="placeholder" invisible="1"/>
+                        <field name="selectable_products" invisible="1"/>
+                        <field name="template_check" string=" " style="text-align:left;"/>
+                        <field name="text_value" string=" " options="{'no_create': True, 'no_open': True, 'no_create_edit': True}" placeholder="Text field" attrs="{'readonly': [('readonly_status', '=', True)]}" force_save="1"/>
+<!--                        <field name="text_value" options="{'no_open': True, 'no_create': True}"/>-->
+                        <field name="preview_product" invisible="1"/>
+                        <field name="tag_ids" invisible="1"/>
+                        <field name="type_name" invisible="1"/>
+                        <field name="type_list" string=" " options="{'no_create': True, 'no_open': True, 'no_create_edit': True}" style="text-align:left;" attrs="{'readonly': [('readonly_status', '=', True)]}" force_save="1"/>
+<!--                        <field name="type_list" options="{'no_open': True, 'no_create': True}"/>-->
+                        <field name="quantity_formula_value" invisible="1"/>
+                        <field name="readonly_status" invisible="1" />
+                        <field name="hidden_status" invisible="1" />
+                        <field name="group_type" invisible="1"/>
+                        <field name="efficiency" invisible="1"/>
+                        <field name="field_value" invisible="1" />
+                        <field name="template_check" invisible="1" />
+                        <field name="product_uom" invisible="1" />
+                    </tree>
+                </field>
+                <group attrs="{'invisible': [('template_name', '=', False)]}">
+                    <field name="default_code" />
+                    <field name="quantity" />
+                    <field name="discount" />
+<!--                    <field name="hexadecimal_barcode" invisible="1"/>-->
+<!--                    <field name="test_field" readonly="1"/>-->
+                </group>
+<!--                <label for="calculate" string="Calculate Price and Cost" class="btn btn-sm btn-primary" attrs="{'invisible': [('template_name', '=', False)]}"/>-->
+<!--                <field name="calculate" invisible="1"/>-->
+                <group attrs="{'invisible': [('template_name', '=', False)]}">
+                    <field name="calculate_price" readonly="1" />
+                    <field name="calculate_cost" readonly="1" />
+                    <field name="calculate_margin" readonly="1"/>
+                    <field name="calculate_margin_multiplier" readonly="1"/>
+                </group>
+                <field name="template_parameters_push" mode="tree" invisible="1">
+                    <tree string="Parameters" editable="bottom" delete="false" create="false" edit="false">
+                        <field name="push_domain" />
+                        <field name="param" />
+                    </tree>
+                </field>
+
+                <footer>
+                    <button special="cancel" string="Cancel" class="pull-left btn-secondary"/>
+<!--                    <button name="action_save" type="object" string="Save" class="btn-primary oe_highlight pull-left" context="{'save_template_configurator': True}"/>-->
+                    <button name="action_save" type="object" string="Save" class="btn-primary oe_highlight pull-left"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="product_configurator_text_edit_view" model="ir.ui.view">
+        <field name="name">product.configurator.view</field>
+        <field name="model">product.configurator</field>
+        <field name="arch" type="xml">
+            <form name="Product Configurator">
+                <group>
+                    <field name="template_name" readonly="1"/>
+                    <field name="check" invisible="1"/>
+                    <field name="duplicate_configurator" placeholder="Choose an existing configurator, if you wish to duplicate its values" readonly="1"/>
+                </group>
+                <field name="configurator_product_description" string="Product Description: " attrs="{'invisible': [('template_name', '=', False)]}" readonly="1" />
+                <field name="name" placeholder="The configuration name will be auto generated" invisible="1"/>
+                <field name="template_parameters" mode="tree" context="{'default_template_name': active_id}" domain="[('hidden_status', '=', False)]" widget="configurator_one2many" attrs="{'invisible': [('template_name', '=', False)]}">
+                    <tree string="Parameters" decoration-muted="readonly_status=='true'" editable="bottom" delete="false" create="false" edit="false" limit="400">
+                        <field name="line_config" invisible="1"/>
+                        <field name="parameter_name" readonly="1" force_save="1" string=" " attrs="{'invisible': [('hidden_status', '=', True)]}"
+                               options="{'no_create': True, 'no_edit': True, 'no_open': True, 'no_create_edit': True}"/>
+                        <field name="float_values" string=" " style="text-align:left;" readonly="1" force_save="1"/>
+                        <field name="products" string=" " context="{'configurator_display_name': 1, 'tree_view_ref': 'configurable_products.inherit_view_product_tree'}" options="{'no_create': True, 'no_edit': True, 'no_open': True, 'no_create_edit': True}" readonly="1"/>
+                        <field name="placeholder" invisible="1"/>
+                        <field name="selectable_products" invisible="1"/>
+                        <field name="template_check" string=" " style="text-align:left;"/>
+                        <field name="text_value" string=" " placeholder="Text field" attrs="{'readonly': [('readonly_status', '=', True)]}" force_save="1"/>
+                        <field name="preview_product" invisible="1"/>
+                        <field name="tag_ids" invisible="1"/>
+                        <field name="type_name" invisible="1"/>
+                        <field name="type_list" string=" " options="{'no_create': True, 'no_edit': True, 'no_open': True, 'no_create_edit': True}" style="text-align:left;" readonly="1"/>
+                        <field name="quantity_formula_value" invisible="1"/>
+                        <field name="readonly_status" invisible="1" />
+                        <field name="hidden_status" invisible="1" />
+                        <field name="efficiency" invisible="1"/>
+                        <field name="group_type" invisible="1" />
+                        <field name="field_value" invisible="1" />
+                        <field name="template_check" invisible="1" />
+                        <field name="product_uom" invisible="1" />
+                    </tree>
+                </field>
+                <group attrs="{'invisible': [('template_name', '=', False)]}">
+                    <field name="quantity" readonly="1"/>
+                    <field name="discount" readonly="1"/>
+<!--                    <field name="hexadecimal_barcode" readonly="1"/>-->
+                </group>
+<!--                <label for="calculate" string="Calculate Price and Cost" class="btn btn-sm btn-primary" attrs="{'invisible': [('template_name', '=', False)]}"/>-->
+<!--                <field name="calculate" invisible="1"/>-->
+                <group attrs="{'invisible': [('template_name', '=', False)]}">
+                    <field name="calculate_price" readonly="1" />
+                    <field name="calculate_cost" readonly="1" />
+                    <field name="calculate_margin" readonly="1" />
+                    <field name="calculate_margin_multiplier" readonly="1" />
+                </group>
+                <field name="template_parameters_push" mode="tree" invisible="1">
+                    <tree string="Parameters" editable="bottom" delete="false" create="false" edit="false">
+                        <field name="push_domain" />
+                        <field name="param" />
+                    </tree>
+                </field>
+
+                <footer>
+                    <button special="cancel" string="Cancel" class="pull-left btn-secondary"/>
+                    <button name="action_save" type="object" string="Save" class="btn-primary oe_highlight pull-left" context="{'save_template_configurator': True}"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="mrp_routing_workcenter_configurator_addition_form_view" model="ir.ui.view">
+        <field name="name">mrp.routing.workcenter.form</field>
+        <field name="model">mrp.routing.workcenter</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_workcenter_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='worksheet']" position="before">
+                <group>
+                    <field name="auto_generate_check" invisible="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_product_tree" model="ir.ui.view">
+        <field name="name">product.inherit.tree</field>
+        <field name="model">product.product</field>
+        <field eval="8" name="priority"/>
+        <field name="arch" type="xml">
+            <tree string="Products">
+                <field name="configurator_display_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_configurator_tree" model="ir.ui.view">
+        <field name="name">view.product.configurator.tree</field>
+        <field name="model">product.configurator</field>
+        <field name="arch" type="xml">
+            <tree string="Product Configurators">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_product_configurator_view" model="ir.actions.act_window">
+        <field name="name">Product Configurator</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.configurator</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="view_type">form</field>-->
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create_smiling_face">
+                Click to create a product configurator.
+            </p>
+        </field>
+    </record>
+</odoo>

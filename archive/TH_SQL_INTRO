@@ -1,0 +1,44 @@
+TODO:
+
+1) TH baas püsti
+2) Vaata kogu tradehouse_pricelist moodul üle (võid põgusalt vaadat ka multi_partner_pos
+3) Täistabelivõrdlus
+4) Rabbit MQ liides ja selle testimise meetodid (MOCK) - message struktuur võiks olla suht paigas.
+5) analüüs alternativiide võimalustest
+
+
+
+IGA MUUDATUS MUUTUB EVENTIKS - vaata th pl mooduli triggerid
+
+Müüvad igasugu asju, ilutooteid veebis ja kassas
+38000 toodet
+palju hinnakirjasid 200, hinnakirja reegleid 9000
+300 k klienti
+
+Veebilehe e poe võttes võetakse hinnakiri sisselogitud kasutaja põhjal.
+Kui palju kasutajaid, on vaja cache
+
+
+Hinnakirja loogika:
+
+create materialized view old stuff as (
+select * from product lalala
+);
+refresh materialized view product lalalala
+
+saad võrrelda
+samuti saad refreshhida concurrently (uuri, mis see on)
+
+_compute_price_rule_get_items( - kirjutame baaskoodi funktsiooni üle, signatuur on sama, aga tegelikult pooli väljasid pole vaja
+
+used_in on array hinnakirjadest
+product ja company on koos sellega kõige olulisemad.
+
+"explain analyze" annab info, mida query päriselt teeb.
+
+
+Pane paika dataset, mida eventi saata. Oluline on id, final ja og price ning toode
+
+Uuri kindlasti Rabbit MQ kasu. loo mock
+
+

@@ -1,0 +1,40 @@
+RPC_ERROR
+Odoo Server Error
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/odoo/odoo/http.py", line 1584, in _serve_db
+    return service_model.retrying(self._serve_ir_http, self.env)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/service/model.py", line 134, in retrying
+    result = func()
+  File "/usr/lib/python3/dist-packages/odoo/odoo/http.py", line 1613, in _serve_ir_http
+    response = self.dispatcher.dispatch(rule.endpoint, args)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/http.py", line 1810, in dispatch
+    result = self.request.registry['ir.http']._dispatch(endpoint)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/addons/base/models/ir_http.py", line 149, in _dispatch
+    result = endpoint(**request.params)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/http.py", line 699, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/dataset.py", line 46, in call_button
+    action = self._call_kw(model, method, args, kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/addons/web/controllers/dataset.py", line 33, in _call_kw
+    return call_kw(request.env[model], method, args, kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/api.py", line 461, in call_kw
+    result = _call_kw_multi(method, model, args, kwargs)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/api.py", line 448, in _call_kw_multi
+    result = method(recs, *args, **kwargs)
+  File "/mnt/extra-addons/energex/smart_timesheets/models/sale_order.py", line 23, in action_create_test_task
+    line._timesheet_service_generation()
+  File "/usr/lib/python3/dist-packages/odoo/addons/sale_project/models/sale_order_line.py", line 305, in _timesheet_service_generation
+    so_line._timesheet_create_task(project=project)
+  File "/mnt/extra-addons/energex/smart_timesheets/models/sale_order_line.py", line 34, in _timesheet_create_task
+    task.child_ids = self.env['project.task.type'].create({'name': _('New')})
+  File "/usr/lib/python3/dist-packages/odoo/odoo/fields.py", line 1298, in __set__
+    write_value = self.convert_to_write(value, records)
+  File "/usr/lib/python3/dist-packages/odoo/odoo/fields.py", line 4202, in convert_to_write
+    raise ValueError("Wrong value for %s: %s" % (self, value))
+ValueError: Wrong value for project.task.child_ids: project.task.type(215,)
+
+The above server error caused the following client error:
+RPC_ERROR: Odoo Server Error
+    RPCError@http://localhost:9080/web/assets/3158-62e4a37/web.assets_backend.min.js:970:274
+    makeErrorFromResponse@http://localhost:9080/web/assets/3158-62e4a37/web.assets_backend.min.js:974:163
+    jsonrpc/promise</<@http://localhost:9080/web/assets/3158-62e4a37/web.assets_backend.min.js:982:34

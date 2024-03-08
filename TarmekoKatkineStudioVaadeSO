@@ -1,0 +1,83 @@
+<data>
+  <xpath expr="//field[@name='certificate']" position="after">
+    <xpath expr="//field[@name='client_order_ref']" position="move"/>
+  </xpath>
+  <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='order_lines']/field[@name='order_line']/tree[1]/field[@name='product_packaging_id']" position="after">
+    <xpath expr="//field[@name='product_packaging_qty']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='fiscal_position_id']" position="attributes">
+    <attribute name="attrs">{"required": [["partner_id","=",15889]]}</attribute>
+  </xpath>
+  <xpath expr="//field[@name='picking_policy']" position="after">
+    <field name="x_studio_delivery_lead_time"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='name']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='name']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_packaging_id']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_packaging_id']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_packaging_qty']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='name']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom_qty']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='package_count']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='name']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='name']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="attributes">
+    <attribute name="optional">show</attribute>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='analytic_distribution']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom_qty']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_packaging_qty']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom_qty']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom_qty']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='package_count']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='name']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//button[@name='open_configurator']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="move"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[2]/group[1]/field[8]" position="after">
+    <field name="x_studio_nita_aluseid_pakkumisel"/>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[2]/group[1]/field[9]" position="attributes">
+    <attribute name="string">pallets q</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[2]/group[1]/field[9]" position="attributes">
+    <attribute name="string">Pallets quotation</attribute>
+  </xpath>
+  <xpath expr="/form[1]/sheet[1]/notebook[1]/page[3]/group[2]/group[1]/field[9]" position="attributes">
+    <attribute name="string">Näita aluseid pakkumisel</attribute>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="after">
+    <field name="x_studio_order_ref_nr" optional="show"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_uom']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='x_studio_order_ref_nr']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='product_packaging_id']" position="after">
+    <xpath expr="//field[@name='order_line']/tree[1]//field[@name='x_studio_order_ref_nr']" position="move"/>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='x_studio_order_ref_nr']" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='package_count']" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </xpath>
+  <xpath expr="//field[@name='order_line']/tree[1]//field[@name='weight']" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </xpath>
+</data>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Remove origin country from invoice -->
+<template id="account_intrastat.report_invoice_document_intrastat_2019" inherit_id="account.report_invoice_document">
+</template>
+
+<template id="report_invoice_document_sale_dagoterm" inherit_id="account.report_invoice_document">
+
+    <xpath expr="//div[@name='reference']" position="before">
+        <div class="col-auto" t-if="o.object_name" name="object_name">
+            <strong>Object:</strong>
+            <p t-field="o.object_name"/>
+        </div>
+        <div class="col-auto" t-if="o.contract_name" name="contract_name">
+            <strong>Contract:</strong>
+            <p t-field="o.contract_name"/>
+        </div>
+    </xpath>
+
+    <xpath expr="//tbody[hasclass('invoice_tbody')]" position="attributes">
+        <attribute name="style">font-size: 14px;</attribute>
+    </xpath>
+
+    <xpath expr="//tbody[hasclass('invoice_tbody')]//tr[1]//td[1]" position="inside">
+        <t t-if="line.product_id and line.product_id.bom_ids">
+            <t t-foreach="line.product_id.bom_ids" t-as="mrp_bom">
+                <t t-if="mrp_bom.print_components">
+                    <t t-foreach="mrp_bom.bom_line_ids" t-as="mrp_bom_line">
+                        <br/>
+                        <span>-
+                            <span t-esc="mrp_bom_line.product_id.name"/>
+                            (<span t-esc="mrp_bom_line.product_qty"/> <span t-esc="mrp_bom_line.product_uom_id.name"/>)
+                        </span>
+                    </t>
+                </t>
+                <t t-else="">
+                    <t t-foreach="mrp_bom.bom_line_ids" t-as="mrp_bom_line">
+                        <t t-if="mrp_bom_line.child_bom_id.type == 'phantom'">
+                            <br/>
+                            <span>-
+                                <span t-esc="mrp_bom_line.product_id.name"/>
+                                (<span t-esc="mrp_bom_line.product_qty"/> <span t-esc="mrp_bom_line.product_uom_id.name"/>)
+                            </span>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.quantity']" position="replace">
+        <span><t t-if="o.move_type == 'out_refund'">- </t> <span t-field="line.quantity"/></span>
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
+        <span groups="account.group_show_line_subtotals_tax_excluded"><t t-if="o.move_type == 'out_refund'">- </t> <span t-field="line.price_subtotal"/></span>
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.price_total']" position="replace">
+        <span groups="account.group_show_line_subtotals_tax_included"><t t-if="o.move_type == 'out_refund'">- </t> <span t-field="line.price_total"/></span>
+    </xpath>
+
+    <xpath expr="//span[@t-esc='current_subtotal']" position="replace">
+        <span><t t-if="o.move_type == 'out_refund'">- </t> <span t-esc="current_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/></span>
+    </xpath>
+
+    <xpath expr="//div[@id='total']/div" position="attributes"> <!-- Siin see [0] vb üleliigne-->
+        <attribute name="t-attf-class">#{'col-5' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+    </xpath>
+
+    <xpath expr="//span[@t-field='o.amount_untaxed']" position="replace">
+        <span><t t-if="o.move_type == 'out_refund'">- </t> <span t-field="o.amount_untaxed"/></span>
+    </xpath>
+<!-- should change 141 !!!!! -->
+    <xpath expr="//span[@t-esc='amount_by_group[3]'][1]" position="replace">
+        <span><t t-if="o.move_type == 'out_refund'">- </t> <t t-esc="amount_by_group[3]"/></span>
+    </xpath>
+<!--chamges line 148-->
+    <xpath expr="//t[@t-esc='amount_by_group[4]']" position="before">
+        <t t-if="o.move_type == 'out_refund'">- </t>
+    </xpath>
+
+<!--    <xpath expr="//div[@id='total']//t[@t-else='']//span[@t-esc='amount_by_group[3]']" position="replace">-->
+<!--        <span><t t-if="o.move_type == 'out_refund'">- </t> <t t-esc="amount_by_group[3]"/></span>-->
+<!--    </xpath>-->
+
+    <xpath expr="//span[@t-esc='amount_by_group[3]'][2]" position="replace">
+        <span><t t-if="o.move_type == 'out_refund'">- </t> <t t-esc="amount_by_group[3]"/></span>
+    </xpath>
+
+    <xpath expr="//span[@t-field='o.amount_total']" position="replace">
+        <span><t t-if="o.move_type == 'out_refund'">- </t> <span t-field="o.amount_total"/></span>
+    </xpath>
+</template>
+
+<record id="action_report_invoice_html" model="ir.actions.report">
+    <field name="name">Arve eelvaade</field>
+    <field name="model">account.move</field>
+    <field name="report_type">qweb-html-pop-up</field>
+    <field name="report_name">account.report_invoice_with_payments</field>
+    <field name="report_file">account.report_invoice_with_payments</field>
+    <field name="print_report_name">object._get_report_base_filename()</field>
+    <field name="binding_model_id" ref="model_account_move"/>
+    <field name="binding_type">report</field>
+</record>
+
+</odoo>

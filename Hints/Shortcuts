@@ -1,0 +1,43 @@
+CHECK "Keyboard" app for more
+SUPER = WINDOWS button
+
+GENERAL:
+CTRL ALT + T - launch terminal 
+ALT + F2  - RUN
+(SHIFT+ )SUPER + SPACE - next (or previous) input source 
+
+BROWSER
+CTRL + W - close browser tab
+CTRL + T - create browser tab
+CTRL + TAB - next browser tab
+CTRL + SHIFT + TAB - previous browser tab
+ALT + D / CTRL + L- enter URL
+
+WINDOWS:
+SUPER + H - hide window
+CTRL SUPER DOWN - LOWER window (- CUSTOM!!!)
+SUPER + UP - maximize window 
+SUPER + DOWN - restore window???
+ALT + f10 - Toggle maximization 
+CTRL + SUPER + D - Hide all (SUPER + D on windows) 
+ALT + F8 - Resize (useful on search windows)
+
+SUPER + page up/down - navigate between workspaces (desktops)
+SHIFT + SUPER + arrow - move window between monitors
+ALT + ESC/TAB - navigate between windows ( ALT + F6 for same app windows (pycharm?)
+ 
+custom: F5 - fullscreen
+
+CTRL SHIFT DOWN - raise window if covered, otherwise lower it (1 aste)
+CTRL SHIFT UP - raise above other windows (aktiivne on alati üleval tho...)
+
+
+GENERAL CUSTOM:
+SUPER + W - launch web browser (currently firefox)
+CTRL + ALT + S - launch settings
+
+SCREENSHOTS:
+(FN)+print - interactive screenshot
+SHIFT + (FN +) print - straight screenshot
+CTRL ALT SHIFT + R - screen record (interactive)
+ALT + (FN + ) print - screenshot window

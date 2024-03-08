@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="image_generator">
+        <t t-call="web.basic_layout">
+<!--            <t t-set="image_width" t-value="4 * width"/>-->
+<!--            <t t-set="image_height" t-value="4 * height"/>-->
+            <style>
+                .square {
+                  height: 600px;
+                  width: 480px;
+                  background-color: #0000;
+                  border:1px solid black;
+                }
+<!--                document.getElementById('square').style.height = image_height + "px";-->
+<!--                document.getElementById('square').style.width = image_width + "px";-->
+            </style>
+<!--            <div class="square" ></div>-->
+            <h3><t t-esc="product"/></h3>
+            <div>
+                <b>Height - <t t-esc="height"/></b><br/>
+                <b>Width - <t t-esc="width"/></b>
+                <div class="square"> </div>
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

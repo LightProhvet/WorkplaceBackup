@@ -1,0 +1,14 @@
+THIS DIDN*T WORK:
+<t t-extend="timesheet_grid.timer_header">
+        <t t-jquery="button.btn_start_timer" t-operation="replace">
+            <button data-hotkey="z" class="btn_start_timer btn btn-odoo text-uppercase" t-on-click="_onClickStartTimer" t-ref="startButton"><i class="fa fa-play"></i> Test</button>
+        </t>
+    </t>
+
+THIS DID WORK:
+
+    <t t-inherit="timesheet_grid.timer_header" t-inherit-mode="extension">
+        <xpath expr="//t[2]/div[1]/div[1]/button[1]" position="replace">
+            <button data-hotkey="z" class="btn_start_timer btn btn-odoo text-uppercase" t-on-click="_onClickStartTimer" t-ref="startButton"><i class="fa fa-play"></i> Start</button>
+        </xpath>
+    </t>

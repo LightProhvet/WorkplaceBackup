@@ -1,0 +1,25 @@
+User context:
+
+class MyComponent extends Component {
+    setup() {
+        const user = useService("user");
+        console.log(user.context);
+    }
+}
+
+contains: allowed_company_ids, lang, tz
+
+
+
+Action context:
+in XMl :<field name="context">{'search_default_customer': 1}</field>
+in JS:
+// in setup
+let actionService = useService("action");
+
+// in some event handler
+actionService.doAction("addon_name.something", {
+    additional_context:{
+        default_period_id: defaultPeriodId
+    }
+});

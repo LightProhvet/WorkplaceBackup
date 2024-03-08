@@ -1,0 +1,9 @@
+1) Places: 
+GET /api/ext/v1/places?  (country={country}&type={type}&filter={filter})
+
+SEE ON KA ÜKS MUUDATUSTEST, enne oli request=destination
+
+2)Courier visti times:
+GET /api/ext/v1/courier-visit-times? 
+
+

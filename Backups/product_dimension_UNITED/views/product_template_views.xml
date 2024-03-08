@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="priority">7</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_lots_and_weight']/label[@for='weight']" position="replace"/>
+            <xpath expr="//group[@name='group_lots_and_weight']/div[@name='weight']" position="replace"/>
+            <xpath expr="//group[@name='group_lots_and_weight']/label[@for='volume']" position="replace"/>
+            <xpath expr="//group[@name='group_lots_and_weight']/div[@name='volume']" position="replace"/>
+            <page name="inventory" position="after">
+                <page string="Dimension" name="product_dimension">
+                    <group>
+                        <group name="dimension_unit" string="Product dimension unit"
+                               attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}">
+                            <field name="dimension_uom_id"/>
+                        </group>
+                        <group name="product_dimension" string="Product dimension"
+                               attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '>', 1)]}">
+                            <label for="length"/>
+                            <div class="o_row" name="length">
+                                <field name="length"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="width"/>
+                            <div class="o_row" name="width">
+                                <field name="width"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="height"/>
+                            <div class="o_row" name="height">
+                                <field name="height"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="diameter"/>
+                            <div class="o_row" name="diameter">
+                                <field name="diameter"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="volume"/>
+                            <div class="o_row" name="volume">
+                                <field name="volume" string="Volume"/>
+                                <span>
+                                    <field name="volume_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="weight"/>
+                            <div class="o_row" name="weight">
+                                <field name="weight"/>
+                                <span>
+                                    <field name="weight_uom_name"/>
+                                </span>
+                            </div>
+                        </group>
+                        <group name="product_package_dimension" string="Package dimension"
+                               attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '>', 1)]}">
+                            <label for="package_length"/>
+                            <div class="o_row" name="package_length">
+                                <field name="package_length"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="package_width"/>
+                            <div class="o_row" name="package_width">
+                                <field name="package_width"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="package_height"/>
+                            <div class="o_row" name="package_height">
+                                <field name="package_height"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="package_volume"/>
+                            <div class="o_row" name="package_volume">
+                                <field name="package_volume" string="Package volume"/>
+                                <span>
+                                    <field name="volume_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="package_weight"/>
+                            <div class="o_row" name="package_weight">
+                                <field name="package_weight"/>
+                                <span>
+                                    <field name="weight_uom_name"/>
+                                </span>
+                            </div>
+                        </group>
+                        <group name="product_bulk_box_dimension" string="Bulk box dimension"
+                               attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '>', 1)]}">
+                            <label for="bulk_box_length"/>
+                            <div class="o_row" name="bulk_box_length">
+                                <field name="bulk_box_length"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="bulk_box_width"/>
+                            <div class="o_row" name="bulk_box_width">
+                                <field name="bulk_box_width"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="bulk_box_height"/>
+                            <div class="o_row" name="bulk_box_height">
+                                <field name="bulk_box_height"/>
+                                <span>
+                                    <field name="dimension_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="bulk_box_volume"/>
+                            <div class="o_row" name="bulk_box_volume">
+                                <field name="bulk_box_volume" string="Bulk box volume"/>
+                                <span>
+                                    <field name="volume_uom_name"/>
+                                </span>
+                            </div>
+                            <label for="bulk_box_weight"/>
+                            <div class="o_row" name="bulk_box_weight">
+                                <field name="bulk_box_weight"/>
+                                <span>
+                                    <field name="weight_uom_name"/>
+                                </span>
+                            </div>
+                            <field name="quantity_in_bulk_box"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+
+</odoo>

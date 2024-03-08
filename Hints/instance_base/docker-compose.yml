@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+  odoo:
+    image: estpos/odoo-k8s-16-enterprise:latest
+    container_name: odoo_16_test
+#    user: "1001:1001"
+    restart: unless-stopped
+    entrypoint: ["/startup.sh", "--load", "web"]
+    stop_grace_period: 0s
+    stop_signal: SIGKILL
+    command: --dev all
+    ports:
+      - 9100:9010 # muuda porti
+    depends_on:
+      - db
+    volumes:
+#      - ./entrypoint.sh:/entrypoint.sh:ro
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+      - odoo-web-data:/var/lib/odoo
+      - /opt/repositories/odoo_16:/mnt/extra-addons
+      - /opt/odoo_repositories/odoo_16/odoo_16c:/usr/lib/python3/dist-packages/odoo
+      - /opt/odoo_repositories/odoo_16/odoo_16e:/usr/lib/python3/dist-packages/odoo/odoo_enterprise
+    environment:
+      - TARGET_UID=1001
+#  db:
+#    image: postgres:14
+#    container_name: postgres_14_odoo_16_test # muuda nime
+#    ports:
+#      - 5439:5432
+#    environment:
+#      - POSTGRES_PASSWORD=odoo
+#      - POSTGRES_USER=odoo
+#      - POSTGRES_DB=postgres
+#      - admin_passwd=odoo
+#    volumes:
+#      - odoo-db-data:/var/lib/postgresql/data
+volumes:
+  odoo-web-data:
+#  odoo-db-data:
